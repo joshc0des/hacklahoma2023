@@ -10,9 +10,19 @@
 
     <body>
         <div class="navbar">
-            <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
-            <a href="{{ url_for('about') }}" class="navbar-item">About</a>
-            <a href="{{ url_for('contact') }}" class="navbar-item">Contact</a>
+
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
+                    </div>
+                    <div class="col">
+                        <a href="{{ url_for('about') }}" class="navbar-item">About</a>
+                    </div>
+                    <div class="col">
+                        <a href="{{ url_for('contact') }}" class="navbar-item">Contact</a>
+                    </div>
+                </div>
+
         </div>
 
         <div class="body-content">
@@ -20,7 +30,7 @@
             {% endblock %}
             <hr/>
             <footer>
-                <p>&copy; 2023</p>
+                <p class="text-center">&copy; 2023</p>
             </footer>
         </div>
     </body>
