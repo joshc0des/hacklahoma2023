@@ -8,7 +8,7 @@ from flaskapp.db import get_db
 
 bp = Blueprint('service_requests', __name__)
 
-@bp.route('/')
+@bp.route('/index')
 def index():
     db = get_db()
     posts = db.execute(

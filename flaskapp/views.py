@@ -3,7 +3,7 @@ from flask import render_template
 from datetime import datetime
 from . import app
 
-@app.route("/")
+@app.route("/home")
 def home():
     return render_template("home.html")
 
@@ -14,4 +14,3 @@ def success():
 @app.route("/form/")
 def form():
     return render_template("form.html")
-
