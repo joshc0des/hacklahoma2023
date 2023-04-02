@@ -34,7 +34,7 @@
                 <div>
                     <label><input type="radio" name="PU/D" value="yes" required onclick="showInputAddr()">Yes, please!</label>
                     <br>
-                    <label><input type="radio" name="PU/D" value="no" onclick="hideInput()">No, I will bring my racket to you as well as pick it up!</label>
+                    <label><input type="radio" name="PU/D" value="no" onclick="hideInputAddr()">No, I will bring my racket to you as well as pick it up!</label>
                 </div>
                 <br>
                 <div id="formAddress" style="display: none;">
@@ -72,9 +72,9 @@
                 </div>
                 <br>
                 <div>
-                    <label><input type="radio" name="stringSource" value="use" required onclick="showInput()">I will use the inventory!</label>
+                    <label><input type="radio" name="stringSource" value="use" required onclick="showInputStringOpt()">I will use the inventory!</label>
                     <br>
-                    <label><input type="radio" name="stringSource" value="provide" onclick="hideInput()">I will provide the string with the Racket!</label>
+                    <label><input type="radio" name="stringSource" value="provide" onclick="hideInputStringOpt()">I will provide the string with the Racket!</label>
                 </div>
                     <div id="formTwineTalk" style="display: none">
                             <div class="form-group">
@@ -92,7 +92,48 @@
                                 <br>
                                 <label><input type="radio" name="stringMain" value="option 3">Option 3</label>
                             </div> 
+                            <br>
+                            <div>
+                                <label>Strings requested in crosses?</label>
+                            </div>
+                            <div>
+                                <label><input type="radio" name="stringCross" value="option 1" required>Option 1</label>
+                                <br>
+                                <label><input type="radio" name="stringCross" value="option 2">Option 2</label>
+                                <br>
+                                <label><input type="radio" name="stringCross" value="option 3">Option 3</label>
+                            </div>
+                            <br>
+                            <div>
+                                <label>Tension requested in mains?</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="tensionMain">Tension requested in mains?</label>
+                                <input type="number" id="tensionMain" class="form-control">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="tensionCross">Tension requested in crosses?</label>
+                                <input type="number" id="tensionCross" class="form-control">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="prefferedString">If your preferred type is not available, please enter the current string that you use. I will supplement this with the most similar string in my inventory.</label>
+                                <input type="text" id="prefferedString" class="form-control">
+                            </div>
                     </div>
+            </div>
+
+            <div id="formAddress" style="display: none;">
+                <div class="col">
+                    <h2 class="text-center">The Exchange</h2>
+                    <p class="text-center">You answered "yes" to the pick-up / delivery service. Please ensure that you address you entered in the left collumn is both correct and the proper location for both exchanges!</p>
+                    <br>
+                    <div class="form-group">
+                        <label for="datePickUp">By what date would you like your racket picked up?</label>
+                        <input type="date" id="datePickUp" class="form-control">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -101,9 +142,14 @@
         function showInputAddr() {
             document.getElementById("formAddress").style.display = "block";
         }
-
-        function hideInput() {
+        function hideInputAddr() {
             document.getElementById("formAddress").style.display = "none";
+        }
+        function showInputStringOpt() {
+            document.getElementById("formTwineTalk").style.display = "block";
+        }
+        function showInputStringOpt() {
+            document.getElementById("formTwineTalk").style.display = "none";
         }
     </script>
 
