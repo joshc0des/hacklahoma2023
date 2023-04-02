@@ -4,9 +4,13 @@
 {% endblock %}
 
 {% block content %}
+<br>
+<br>
+<br>
     <div class="container">
         <div class="row align-items-center">
             <div class="col">
+                <h2 class="text-center">Contact Info</h2>
                 <div class="form-group">
                     <label for="formName">Name:</label>
                     <input type="text" id="formName" class="form-control" placeholder="First Last" required>
@@ -28,7 +32,7 @@
                     <label>Would you like the pick-up/delivery service?</label>
                 </div>
                 <div>
-                    <label><input type="radio" name="PU/D" value="yes" required onclick="showInput()">Yes, please!</label>
+                    <label><input type="radio" name="PU/D" value="yes" required onclick="showInputAddr()">Yes, please!</label>
                     <br>
                     <label><input type="radio" name="PU/D" value="no" onclick="hideInput()">No, I will bring my racket to you as well as pick it up!</label>
                 </div>
@@ -61,11 +65,40 @@
                 </div>    
             </div>
 
+            <div class="col">
+                <h2 class="text-center">Let's Talk Twine</h2>
+                <div>
+                    <label>Would you like to use our string inventory or provide string?</label>
+                </div>
+                <br>
+                <div>
+                    <label><input type="radio" name="stringSource" value="use" required onclick="showInput()">I will use the inventory!</label>
+                    <br>
+                    <label><input type="radio" name="stringSource" value="provide" onclick="hideInput()">I will provide the string with the Racket!</label>
+                </div>
+                    <div id="formTwineTalk" style="display: none">
+                            <div class="form-group">
+                                <label for="formRacket">What kind of racket do you use?</label>
+                                <input type="text" id="formRacket" class="form-control">
+                            </div>
+                            <br>
+                            <div>
+                                <label>Strings requested in mains?</label>
+                            </div>
+                            <div>
+                                <label><input type="radio" name="stringMain" value="option 1" required>Option 1</label>
+                                <br>
+                                <label><input type="radio" name="stringMain" value="option 2">Option 2</label>
+                                <br>
+                                <label><input type="radio" name="stringMain" value="option 3">Option 3</label>
+                            </div> 
+                    </div>
+            </div>
         </div>
     </div>
 
     <script>
-        function showInput() {
+        function showInputAddr() {
             document.getElementById("formAddress").style.display = "block";
         }
 
@@ -73,5 +106,6 @@
             document.getElementById("formAddress").style.display = "none";
         }
     </script>
+
 
 {% endblock %}
