@@ -9,21 +9,15 @@
     </head>
 
     <body>
-        <div class="navbar">
+        <nav class="navbar navbar-expand-sm bg-dark fixed-top justify-content-center">
 
-                <div class="row align-items-center">
-                    <div class="col">
-                        <a href="{{ url_for('home') }}" class="navbar-brand">Han Solo Servers</a>
-                    </div>
-                    <div class="col">
-                        <a href="{{ url_for('success') }}" class="navbar-item">About</a>
-                    </div>
-                    <div class="col">
-                        <a href="{{ url_for('form') }}" class="navbar-item">Contact</a>
-                    </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <a href="{{ url_for('home') }}" class="navbar-brand text-light">Tennis Twine</a>
                 </div>
-
-        </div>
+            </div>
+            <button class="btn btn-success">Login</button>
+        </nav>
 
         <div class="body-content">
             {% block content %}

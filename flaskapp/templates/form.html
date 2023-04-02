@@ -7,8 +7,71 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col">
-                <div class=""></div>
+                <div class="form-group">
+                    <label for="formName">Name:</label>
+                    <input type="text" id="formName" class="form-control" placeholder="First Last" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="formPhone">Phone Number:</label>
+                    <br>
+                    <small>Format: 123-456-7890</small>
+                    <input type="tel" id="formPhone" class="form-control" placeholder="123-456-7890" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="formEmail">Email:</label>
+                    <input type="email" id="formEmail" class="form-control" placeholder="ex.ample@email.com" required>
+                </div>
+                <br>
+                <div>
+                    <label>Would you like the pick-up/delivery service?</label>
+                </div>
+                <div>
+                    <label><input type="radio" name="PU/D" value="yes" required onclick="showInput()">Yes, please!</label>
+                    <br>
+                    <label><input type="radio" name="PU/D" value="no" onclick="hideInput()">No, I will bring my racket to you as well as pick it up!</label>
+                </div>
+                <br>
+                <div id="formAddress" style="display: none;">
+                    <div>
+                        <label>Where should I come to pick-up and deliver your racket?</label>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="formStreet">Street Address:</label>
+                        <input type="text" id="formStreet" class="form-control" placeholder="123 Main Street" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formApt">Apt/Suite/Other:</label>
+                        <input type="text" id="formApt" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="formCity">City:</label>
+                        <input type="text" id="formCity" class="form-control" placeholder="City" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formState">State:</label>
+                        <input type="text" id="formState" class="form-control" placeholder="State" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formZip">ZIP Code:</label>
+                        <input type="number" id="formZip" class="form-control" placeholder="12345" required>
+                    </div>
+                </div>    
             </div>
+
         </div>
     </div>
+
+    <script>
+        function showInput() {
+            document.getElementById("formAddress").style.display = "block";
+        }
+
+        function hideInput() {
+            document.getElementById("formAddress").style.display = "none";
+        }
+    </script>
+
 {% endblock %}
