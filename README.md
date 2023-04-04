@@ -9,6 +9,6 @@
 1. Clone the repo
 2. Set environment variable FLASK_APP to flaskapp
   - On Mac/Linux: `export FLASK_APP=flaskapp`
-  - On Windows: `set FLASK_APP=flaskapp` (Powershell) or `$env:FLASK_APP="flaskapp"` (CMD)
+  - On Windows: `set FLASK_APP=flaskapp` (CMD) or `$env:FLASK_APP="flaskapp"` (Powershell)
 3. flask init-db
 4. flask run
