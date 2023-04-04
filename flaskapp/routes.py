@@ -20,3 +20,7 @@ def success():
 @bp.route("/form/", methods=('GET', 'POST'))
 def form():
     return render_template("routes/form.html")
+
+@bp.route("/lesson/", methods=('GET', 'POST'))
+def lesson():
+    return render_template("routes/lesson.html")

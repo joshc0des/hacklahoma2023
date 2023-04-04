@@ -1,0 +1,65 @@
+{% extends "routes/layout.html" %}
+{% block title %}
+    How About a Lesson
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<h1 class="text-center">How About a Lesson on Those New Strings?</h1>
+<p class="text-center">I would love to work with you on developing your game on the court! <br>
+The rate for an hour long private lesson is $20. After purchasing 3 string jobs, the private lesson is on me!</p>
+<br>
+<div class="text-center">
+    <label class="text-center">Would you like to meet up for some instruction?</label>
+</div>
+<div class="text-center">
+    <label><input type="radio" name="lesson" value="yes" required onclick="showInputLesson(), hideInputNoLesson()">Sure!</label>
+    <br>
+    <label><input type="radio" name="lesson" value="no" onclick="hideInputLesson(), showInputNoLesson()">Maybe next time!</label>
+</div>
+<br>
+    <div id="lessonFollowUp" style="display: none;">
+        <h4 class="text-center">Thats great to hear!</h4>
+        <p class="text-center">Please provide some specifics on what you would like to focus during the hour-long lesson. <br>
+        This way, we can maximize our time and your money!</p>
+        <div class="form-group text-center">
+            <label for="specificWork">Provide a few aspects of the game you would like to improve upon!</label>
+            <input type="text" id="specificWork" class="form-control mx-auto" style="width: 400px">
+            <br>
+            <hr>
+            <br>
+            <div class="row align-items-center">
+                <button onclick="window.location.href='/success'" type="button" class="btn btn-center btn-lg btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="nextTime" style="display: none;">
+        <h4 class="text-center">I hope to see you out there soon!</h4>
+        <br>
+        <hr>
+        <br>
+        <div class="row align-items-center">
+            <button onclick="window.location.href='/success'" type="button" class="btn btn-center btn-lg btn-success">Submit</button>
+        </div>
+    </div>
+    <br>
+
+<script>
+    function showInputLesson() {
+        document.getElementById("lessonFollowUp").style.display = "block";
+    }
+    function hideInputLesson() {
+        document.getElementById("lessonFollowUp").style.display = "none";
+    }
+    function showInputNoLesson() {
+        document.getElementById("nextTime").style.display = "block";
+    }
+    function hideInputNoLesson() {
+        document.getElementById("nextTime").style.display = "none";
+    }
+</script>
+
+{% endblock %}
