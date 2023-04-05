@@ -8,7 +8,7 @@ WORKDIR /flaskapp
 
 COPY . /flaskapp
 
-ENV FLASK_APP=flaskapp
+ENV FLASK_APP flaskapp
 
 RUN apk update && apk add --no-cache git
 
