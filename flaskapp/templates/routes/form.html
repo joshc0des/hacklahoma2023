@@ -74,7 +74,8 @@
                 <h2 class="text-center">Let's Talk Twine</h2>
                 <div>
                     <label>Would you like to use our string inventory? <br>
-                        Here, you can learn about what we carry and why!</label>
+                        <a href ="{{ url_for('routes.string') }}">Here</a>, you can learn about what we carry and why! <br>
+                        You should check this out before making selections!</label>
                 </div>
                 <br>
                 <div>
@@ -112,12 +113,12 @@
                     </div>
                     <br>
                     <div class="form-group">
-                        <label for="tensionMain">Tension requested in mains?</label>
+                        <label for="tensionMain">Tension requested in mains? Enter "0" if you are not sure!</label>
                         <input type="number" id="tensionMain" class="form-control">
                     </div>
                     <br>
                     <div class="form-group">
-                        <label for="tensionCross">Tension requested in crosses?</label>
+                        <label for="tensionCross">Tension requested in crosses? Enter "0" if you are not sure!</label>
                         <input type="number" id="tensionCross" class="form-control">
                     </div>
                     <br>

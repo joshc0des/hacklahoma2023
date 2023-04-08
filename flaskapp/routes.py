@@ -24,3 +24,7 @@ def form():
 @bp.route("/lesson/", methods=('GET', 'POST'))
 def lesson():
     return render_template("routes/lesson.html")
+
+@bp.route("/string/", methods=('GET', 'POST'))
+def string():
+    return render_template("routes/string.html")
