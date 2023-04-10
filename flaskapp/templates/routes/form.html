@@ -140,7 +140,7 @@
                     <label>Please confirm your desired means of transfer of the racket!</label>
                 </div>
                 <div>
-                    <label><input type="radio" name="confDel" value="10" required onclick="showInputCoordination(), hideInputThanks()">Let's do the pick-up/delivery service!</label>
+                    <label><input type="radio" name="confDel" value="5" required onclick="showInputCoordination(), hideInputThanks()">Let's do the pick-up/delivery service!</label>
                     <br>
                     <label><input type="radio" name="confDel" value="0" onclick="hideInputCoordination(), showInputThanks()">I will be transporting my own racket!</label>
                 </div>
@@ -244,12 +244,21 @@
                     </div>
             </div>
             <br>
-            <input type="button" value="Add" onclick="addValues()">What is my total?<br>
-            <div id="output"></div>
+            <button type="button" class="btn btn-center btn-dark" onclick="addValues()">Calculate Total*</button>
+            <div id="output" class="text-center fs-1"></div>
             <br>
-            <button onclick="window.location.href='/lesson'" type="button" class="btn btn-center btn-lg btn-success">Just a one more question...</button>
             <hr>
             <br>
+            <button onclick="window.location.href='/lesson'" type="button" class="btn btn-center btn-lg btn-success">Just a one more question...</button>
+            <br>
+            <hr>
+            <br>
+            <p class="text-center">*This is based on the selections made above. The calculation comes from your selection of string type and delivery service. 
+                Thus, if I am using my inventory to substitute the current type you have used, the price is not accurate as a string selection was not made. 
+                This is also for your knowledge; I will share my Venmo with you following the submission to carry out payment. Additionally, if your location 
+                exceeds a 20 mile radius from the OU campus, an additional 50 cents is added per mile radius after the intial 20 miles.
+            </p>
+            <hr>
             <br>
             <br>
             <br>
@@ -286,13 +295,13 @@
             let radiosMain = document.getElementsByName("stringMain");
             let radiosCross = document.getElementsByName("stringCross");
             let radiosDel = document.getElementsByName("confDel");
-            let sum = 0;
+            let sum = 10;
 
             for (let i = 0; i < radiosMain.length; ++i)
             {
                 if (radiosMain[i].checked)
                 {
-                    sum += Number(radiosMain[i].value);
+                    sum += (Number(radiosMain[i].value)) / 2;
                 }
             }
 
@@ -300,7 +309,7 @@
             {
                 if (radiosCross[i].checked)
                 {
-                    sum += Number(radiosCross[i].value);
+                    sum += (Number(radiosCross[i].value)) / 2;
                 }
             }
 
@@ -313,7 +322,7 @@
             }
 
             let outputDiv = document.getElementById("output");
-            outputDiv.innerHTML = sum;
+            outputDiv.innerHTML = "$" + sum;
 
         }
     </script>
