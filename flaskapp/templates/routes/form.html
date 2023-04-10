@@ -32,9 +32,9 @@
                     <label>Would you like the pick-up/delivery service?</label>
                 </div>
                 <div>
-                    <label><input type="radio" name="PU/D" value="yes" required onclick="showInputAddr()">Yes, please!</label>
+                    <label><input type="radio" name="PU/D" value="0" required onclick="showInputAddr()">Yes, please!</label>
                     <br>
-                    <label><input type="radio" name="PU/D" value="no" onclick="hideInputAddr()">No, I will bring my racket to you as well as pick it up!</label>
+                    <label><input type="radio" name="PU/D" value="0" onclick="hideInputAddr()">No, I will bring my racket to you as well as pick it up!</label>
                 </div>
                 <br>
                 <div id="formAddress" style="display: none;">
@@ -94,22 +94,22 @@
                         <label>Strings requested in mains?</label>
                     </div>
                     <div>
-                        <label><input type="radio" name="stringMain" value="option 1" required>Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)</label>
+                        <label><input type="radio" name="stringMain" value="10" required>Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)</label>
                         <br>
-                        <label><input type="radio" name="stringMain" value="option 2">Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow)</label>
+                        <label><input type="radio" name="stringMain" value="12">Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow)</label>
                         <br>
-                        <label><input type="radio" name="stringMain" value="option 3">Gamma Sports Synthetic Gut Tennis String - 16 gauge (white)</label>
+                        <label><input type="radio" name="stringMain" value="8">Gamma Sports Synthetic Gut Tennis String - 16 gauge (white)</label>
                     </div> 
                     <br>
                     <div>
                         <label>Strings requested in crosses?</label>
                     </div>
                     <div>
-                        <label><input type="radio" name="stringCross" value="option 1" required>Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)</label>
+                        <label><input type="radio" name="stringCross" value="10" required>Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)</label>
                         <br>
-                        <label><input type="radio" name="stringCross" value="option 2">Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow)</label>
+                        <label><input type="radio" name="stringCross" value="12">Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow)</label>
                         <br>
-                        <label><input type="radio" name="stringCross" value="option 3">Gamma Sports Synthetic Gut Tennis String - 16 gauge (white)</label>
+                        <label><input type="radio" name="stringCross" value="8">Gamma Sports Synthetic Gut Tennis String - 16 gauge (white)</label>
                     </div>
                     <br>
                     <div class="form-group">
@@ -140,9 +140,9 @@
                     <label>Please confirm your desired means of transfer of the racket!</label>
                 </div>
                 <div>
-                    <label><input type="radio" name="confDel" value="pickUp" required onclick="showInputCoordination(), hideInputThanks()">Let's do the pick-up/delivery service!</label>
+                    <label><input type="radio" name="confDel" value="10" required onclick="showInputCoordination(), hideInputThanks()">Let's do the pick-up/delivery service!</label>
                     <br>
-                    <label><input type="radio" name="confDel" value="selfDeliver" onclick="hideInputCoordination(), showInputThanks()">I will be transporting my own racket!</label>
+                    <label><input type="radio" name="confDel" value="0" onclick="hideInputCoordination(), showInputThanks()">I will be transporting my own racket!</label>
                 </div>
                     <div id="formCoordination" style="display: none;">
                         <br>
@@ -278,6 +278,39 @@
         }
         function hideInputThanks() {
             document.getElementById("formThanks").style.display = "none";
+        }
+
+        function addValues() {
+            let radiosMain = document.getElementsByName("stringMain");
+            let radiosCross = document.getElementsByName("stringCross");
+            let radiosDel = document.getElementsByName("confDel");
+            let sum = 0;
+
+            for (let i = 0; i < radiosMain.length; ++i)
+            {
+                if (radiosMain[i].checked)
+                {
+                    sum += Number(radiosMain[i].value);
+                }
+            }
+
+            for (let i = 0; i < radiosCross.length; ++i)
+            {
+                if (radiosCross[i].checked)
+                {
+                    sum += Number(radiosCross[i].value);
+                }
+            }
+
+            for (let i = 0; i < radiosDel.length; ++i)
+            {
+                if (radiosDel[i].checked)
+                {
+                    sum += Number(radiosDel[i].value);
+                }
+            }
+
+            document.getElementById("result").value = sum;
         }
     </script>
 
