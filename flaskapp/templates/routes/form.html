@@ -243,7 +243,9 @@
 
                     </div>
             </div>
-
+            <br>
+            <input type="button" value="Add" onclick="addValues()"><br>
+            <div id="output"></div>
             <br>
             <button onclick="window.location.href='/lesson'" type="button" class="btn btn-center btn-lg btn-success">Just a one more question...</button>
             <hr>
@@ -310,7 +312,9 @@
                 }
             }
 
-            document.getElementById("result").value = sum;
+            let outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = sum;
+
         }
     </script>
 
