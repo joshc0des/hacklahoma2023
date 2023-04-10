@@ -28,3 +28,7 @@ def lesson():
 @bp.route("/string/", methods=('GET', 'POST'))
 def string():
     return render_template("routes/string.html")
+
+@bp.route("/radius/", methods=('GET', 'POST'))
+def radius():
+    return render_template("routes/radius.html")
