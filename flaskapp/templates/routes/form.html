@@ -94,22 +94,22 @@
                         <label>Strings requested in mains?</label>
                     </div>
                     <div>
-                        <label><input type="radio" name="stringMain" value="10" required>Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)</label>
+                        <label><input type="radio" name="stringMain" value="10" required>Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) <strong>$5</strong></label>
                         <br>
-                        <label><input type="radio" name="stringMain" value="12">Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow)</label>
+                        <label><input type="radio" name="stringMain" value="12">Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) <strong>$6</strong></label>
                         <br>
-                        <label><input type="radio" name="stringMain" value="8">Gamma Sports Synthetic Gut Tennis String - 16 gauge (white)</label>
+                        <label><input type="radio" name="stringMain" value="8">Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) <strong>$4</strong></label>
                     </div> 
                     <br>
                     <div>
                         <label>Strings requested in crosses?</label>
                     </div>
                     <div>
-                        <label><input type="radio" name="stringCross" value="10" required>Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)</label>
+                        <label><input type="radio" name="stringCross" value="10" required>Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) <strong>$5</strong></label>
                         <br>
-                        <label><input type="radio" name="stringCross" value="12">Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow)</label>
+                        <label><input type="radio" name="stringCross" value="12">Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) <strong>$6</strong></label>
                         <br>
-                        <label><input type="radio" name="stringCross" value="8">Gamma Sports Synthetic Gut Tennis String - 16 gauge (white)</label>
+                        <label><input type="radio" name="stringCross" value="8">Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) <strong>$4</strong></label>
                     </div>
                     <br>
                     <div class="form-group">
@@ -140,13 +140,19 @@
                     <label>Please confirm your desired means of transfer of the racket!</label>
                 </div>
                 <div>
-                    <label><input type="radio" name="confDel" value="5" required onclick="showInputCoordination(), hideInputThanks()">Let's do the pick-up/delivery service!</label>
+                    <label><input type="radio" name="confDel" value="5" required onclick="showInputCoordination(), hideInputThanks()">Let's do the pick-up/delivery service! <strong>$5</strong></label>
                     <br>
                     <label><input type="radio" name="confDel" value="0" onclick="hideInputCoordination(), showInputThanks()">I will be transporting my own racket!</label>
                 </div>
                     <div id="formCoordination" style="display: none;">
                         <br>
-                        <p class="text-center">You answered "yes" to the pick-up / delivery service. Please ensure that you address you entered in the left collumn is both correct and the proper location for both exchanges!</p>
+                        <p class="text-center">You answered "yes" to the pick-up / delivery service. Please ensure that the address you entered in the left collumn is 
+                            both correct and the proper location for both exchanges! The $5 charge is flat rate for any location within a 20 mile radius of the University.
+                            Each additional mile is 75 cents. Please see the <strong>"Radius of Travel"</strong> tab in the navigation bar for more information.</p>
+                        <br>
+                        <label><input type="radio" name=confSel" value="deliverySerice" required>My address in the <strong>"Contact Info"</strong> collumn 
+                        is correct!</label>
+                        <br>
                         <br>
                         <h4 class="text-center">Pick-Up</h4>
                         <br>
@@ -253,10 +259,10 @@
             <br>
             <hr>
             <br>
-            <p class="text-center">*This is based on the selections made above. The calculation comes from your selection of string type and delivery service. 
+            <p class="text-center">*This is based on the selections made above with the baseline $10 charge for labor. The calculation comes from your selection of string type and delivery service. 
                 Thus, if I am using my inventory to substitute the current type you have used, the price is not accurate as a string selection was not made. 
                 This is also for your knowledge; I will share my Venmo with you following the submission to carry out payment. Additionally, if your location 
-                exceeds a 20 mile radius from the OU campus, an additional 75 cents is added per mile radius after the intial 20 miles. <a href="{{ url_for('routes.radius') }}">Here</a>, you <br>
+                exceeds a 20 mile radius from the OU campus, an additional 75 cents is added per mile radius after the intial 20 miles. <a href="{{ url_for('routes.radius') }}">Here</a>, you 
                 can see if this will be necessary.
             </p>
             <hr>
@@ -296,21 +302,25 @@
             let radiosMain = document.getElementsByName("stringMain");
             let radiosCross = document.getElementsByName("stringCross");
             let radiosDel = document.getElementsByName("confDel");
+            let radiosStringOption = document.getElementsByName("stringSource");
             let sum = 10;
 
-            for (let i = 0; i < radiosMain.length; ++i)
+            if (radiosStringOption[0].checked)
             {
-                if (radiosMain[i].checked)
+                for (let i = 0; i < radiosMain.length; ++i)
                 {
-                    sum += (Number(radiosMain[i].value)) / 2;
+                    if (radiosMain[i].checked)
+                    {
+                        sum += (Number(radiosMain[i].value)) / 2;
+                    }
                 }
-            }
 
-            for (let i = 0; i < radiosCross.length; ++i)
-            {
-                if (radiosCross[i].checked)
+                for (let i = 0; i < radiosCross.length; ++i)
                 {
-                    sum += (Number(radiosCross[i].value)) / 2;
+                    if (radiosCross[i].checked)
+                    {
+                        sum += (Number(radiosCross[i].value)) / 2;
+                    }
                 }
             }
 
