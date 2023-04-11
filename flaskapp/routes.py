@@ -32,3 +32,7 @@ def string():
 @bp.route("/radius/", methods=('GET', 'POST'))
 def radius():
     return render_template("routes/radius.html")
+
+@bp.route("/payment/", methods=('GET', 'POST'))
+def payment():
+    return render_template("routes/payment.html")
