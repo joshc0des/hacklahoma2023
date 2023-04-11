@@ -10,6 +10,8 @@ COPY . /flaskapp
 
 ENV FLASK_APP flaskapp
 
+ENV AWS_REGION us-east-2
+
 RUN apk update && apk add --no-cache git
 
 COPY requirements.txt .
