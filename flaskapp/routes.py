@@ -36,3 +36,7 @@ def radius():
 @bp.route("/payment/", methods=('GET', 'POST'))
 def payment():
     return render_template("routes/payment.html")
+
+@bp.route("/contact/", methods=('GET', 'POST'))
+def contact():
+    return render_template("routes/contact.html")
