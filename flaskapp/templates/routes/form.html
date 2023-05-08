@@ -4,72 +4,11 @@
 {% endblock %}
 
 {% block content %}
-<br>
-<br>
-<br>
+<br><br><br>
     <div class="container">
         <div class="row align-items-start">
-            <div class="col">
-                <h2 class="text-center">Contact Info</h2>
-                <div class="form-group">
-                    <label for="formName">Name:</label>
-                    <input type="text" id="formName" class="form-control" placeholder="First Last" required>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="formPhone">Phone Number:</label>
-                    <br>
-                    <small>Format: 1234567890</small>
-                    <input type="tel" id="formPhone" class="form-control" pattern="[0-9]{10}"  placeholder="1234567890" required>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="formEmail">Email:</label>
-                    <input type="email" id="formEmail" class="form-control" placeholder="ex.ample@email.com" required>
-                </div>
-                <br>
-                <div>
-                    <label>Would you like the pick-up/delivery service?</label>
-                </div>
-                <div>
-                    <label><input type="radio" name="PU/D" value="0" required onclick="showInputAddr()">Yes, please!</label>
-                    <br>
-                    <label><input type="radio" name="PU/D" value="0" onclick="hideInputAddr()">No, I will bring my racket to you as well as pick it up!</label>
-                </div>
-                <br>
-                <div id="formAddress" style="display: none;">
-                    <div>
-                        <label>Where should I come to pick-up and deliver your racket?</label>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="formStreet">Street Address:</label>
-                        <input type="text" id="formStreet" class="form-control" placeholder="123 Main Street" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="formApt">Apt/Suite/Other:</label>
-                        <input type="text" id="formApt" class="form-control" placeholder="Apt. 1A">
-                    </div>
-                    <div class="form-group">
-                        <label for="formCity">City:</label>
-                        <input type="text" id="formCity" class="form-control" placeholder="City" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="formState">State:</label>
-                        <input type="text" id="formState" class="form-control" placeholder="State" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="formZip">ZIP Code:</label>
-                        <input type="number" id="formZip" class="form-control" placeholder="12345" pattern="[0-9]{5}" required>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>    
-            </div>
-
+            
+            <!--String information collumn-->
             <div class="col">
                 <h2 class="text-center">Let's Talk Twine</h2>
                 <div>
@@ -134,6 +73,7 @@
                 <br>
             </div>
 
+            <!--Delivery Service collumn-->
             <div class="col">
                 <h2 class="text-center">The Exchange</h2>
                 <div>
@@ -150,16 +90,16 @@
                             both correct and the proper location for both exchanges! The $5 charge is flat rate for any location within a 20 mile radius of the University.
                             Each additional mile is 75 cents. Please see the <strong>"Radius of Travel"</strong> tab in the navigation bar for more information.</p>
                         <br>
-                        <label><input type="radio" name=confSel" value="deliverySerice" required>My address in the <strong>"Contact Info"</strong> collumn 
+                        <label><input type="radio" name=confSel value="deliverySerice" required>My address in the <strong>"Contact Info"</strong> collumn 
                         is correct!</label>
                         <br>
                         <br>
                         <h4 class="text-center">Pick-Up</h4>
                         <br>
-                        <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-success">
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">
                             Book Your Pick-Up
                         </button>
-                        <div class="modal fade modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" id="id01">
+                        <div class="modal fade modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" id="bookingsModal">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -167,12 +107,10 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body"> 
-                                        <span onclick="document.getElementById('id01').style.display='none'">
                                             <iframe src="https://outlook.office.com/bookwithme/user/b7be5bd6e43a413fadb7c2c35e92cd6f%40ou.edu/meetingtype/d9DUtDEmJEW4vQeTvReOkg2?anonymous" title="Microsoft Bookings" style="border:3px solid rgb(25, 135, 84);" width="100%" height="100%"></iframe>
-                                        </span>
-                                        </div>
+                                    </div>
                                     <div class="modal-footer">
-                                        <button typ="button" class="btn btn-success">Complete</button>
+                                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">Complete</button>
                                     </div>
                                 </div>
                             </div>
@@ -285,12 +223,6 @@
     </div>
 
     <script>
-        function showInputAddr() {
-            document.getElementById("formAddress").style.display = "block";
-        }
-        function hideInputAddr() {
-            document.getElementById("formAddress").style.display = "none";
-        }
         function showInputStringOpt() {
             document.getElementById("formTwineTalk").style.display = "block";
         }
@@ -308,6 +240,9 @@
         }
         function hideInputThanks() {
             document.getElementById("formThanks").style.display = "none";
+        }
+        function showBookingsModal() {
+            $('#bookingsModal').modal('show');
         }
 
         function addValues() {
@@ -347,7 +282,6 @@
             let outputDiv = document.getElementById("output");
             outputDiv.innerHTML = "$" + sum;
         }
-
     </script>
 
 
