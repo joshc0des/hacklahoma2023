@@ -19,33 +19,32 @@
     <br>
     <div>
         <label>
-            <input type="radio" name="stringSource" value="yes" required onclick="showInputStringOpt()">
+            <input type="radio" name="stringSource" value="yes" required onclick="showInputStringOpt(), hideFormNoInventory()">
             I will use the inventory!
         </label>
         <br>
         <label>
-            <input type="radio" name="stringSource" value="no" onclick="hideInputStringOpt()">
-            I will provide the string with the Racket!
+            <input type="radio" name="stringSource" value="no" onclick="hideInputStringOpt(), showFormNoInventory()">
+            I will provide my own string!
         </label>
     </div>
     <br>
 
     <!--if using my inventory-->
-    <div id="formTwineTalk" style="display: none;">
-        <div class="form-group">
-            <label for="formRacket">
+    <div id="formInventory" style="display: none;">
+        <div class="form-group row justify-content-center">
+            <label for="racketType">
                 What kind of racket do you use?
             </label>
-            <input type="text" id="formRacket" class="form-control" placeholder="Babolat Pure Aero">
-        </div>
-        <br>
-        <div>
+            <div class="col-md-4">
+                <input type="text" id="racketType" class="form-control text-center" placeholder="Babolat Pure Aero">
+            </div>
+            <br><br><br>
             <label>
                 Strings requested in mains?
             </label>
-        </div>
-        <div>
-            <label><input type="radio" name="stringMain" value="10" required>
+            <label>
+                <input type="radio" name="stringMain" value="10" id="mainString" required>
                 Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
                 <strong>
                     $5
@@ -53,7 +52,7 @@
             </label>
             <br>
             <label>
-                <input type="radio" name="stringMain" value="12">
+                <input type="radio" name="stringMain" id="mainString" value="12">
                 Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
                 <strong>
                     $6
@@ -61,21 +60,18 @@
             </label>
             <br>
             <label>
-                <input type="radio" name="stringMain" value="8">
+                <input type="radio" name="stringMain" id="mainString" value="8">
                 Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
                 <strong>
                     $4
                 </strong>
             </label>
-        </div> 
-        <br>
-        <div>
+            <br><br>
             <label>
                 Strings requested in crosses?
-            </label>
-        </div>
-        <div>
-            <label><input type="radio" name="stringCross" value="10" required>
+            </label>      
+            <label>
+                <input type="radio" name="stringCross" id="crossString" value="10" required>
                 Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
                 <strong>
                     $5
@@ -83,7 +79,7 @@
             </label>
             <br>
             <label>
-                <input type="radio" name="stringCross" value="12">
+                <input type="radio" name="stringCross" id="crossString" value="12">
                 Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
                 <strong>
                     $6
@@ -91,46 +87,93 @@
             </label>
             <br>
             <label>
-                <input type="radio" name="stringCross" value="8">
+                <input type="radio" name="stringCross" id="crossString" value="8">
                 Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
                 <strong>
                     $4
                 </strong>
             </label>
-        </div>
-        <br>
-        <div class="form-group">
+            <br><br>
             <label for="tensionMain">
                 Tension requested in mains? Enter "0" if you are not sure!
             </label>
-            <input type="number" id="tensionMain" class="form-control" placeholder="0">
-        </div>
-        <br>
-        <div class="form-group">
+            <div class="col-md-1">
+                <input type="number" id="tensionMain" class="form-control text-center" placeholder="##" min="40" max="70">
+            </div>
+            <br>
             <label for="tensionCross">
                 Tension requested in crosses? Enter "0" if you are not sure!
             </label>
-            <input type="number" id="tensionCross" class="form-control" placeholder="0">
-        </div>
-        <br>
-        <div class="form-group">
+            <br>
+            <div class="col-md-1">
+                <input type="number" id="tensionCross" class="form-control text-center" placeholder="##" min="40" max="70">
+            </div>
+            <br>
             <label for="prefferedString">
-                If your preferred type is not available, please enter the current string that you use. 
-                I will supplement this with the most similar string in my inventory.
+                If your preferred type is not available, please enter the current string that you use. <br>
+                I will supplement this with the most similar string in my inventory. <br>
+                Please make a selection for the main and cross strings above, and I will edit <br>
+                the decision with the appropriate string time if needed. <br>
+                Enter N/A if not applicable.
             </label>
-            <input type="text" id="prefferedString" class="form-control" placeholder="Tourna Big Hitter Black 7">
+            <div class="col-md-4">
+                <input type="text" id="prefferedString" class="form-control text-center" placeholder="Tourna Big Hitter Black 7">
+            </div>
+            <br><br><br>
+            <div class="row align-items-center">
+                <button onclick="window.location.href='/schedule'" type="button" class="btn btn-center btn-large btn-success" id="continueButtonFromInventory" disabled>
+                    Schedule Delivery
+                </button>
+            </div>
         </div>
-    </div>  
+    </div>
+
+    <!--if not using my inventory-->
+    <div id="formNoInventory" style="display: none">
+        <div class="row align-items-center">
+            <button onclick="window.location.href='/schedule'" type="button" class="btn btn-center btn-large btn-success" id="continueButtonFromNoInventory" disabled>
+                Schedule Delivery
+            </button>
+        </div>
+    </div>
 </div>
 <br><br><br>
 
 <!--Javascript functions-->
 <script>
     function showInputStringOpt() {
-            document.getElementById("formTwineTalk").style.display = "block";
+            document.getElementById("formInventory").style.display = "block";
         }
-        function hideInputStringOpt() {
-            document.getElementById("formTwineTalk").style.display = "none";
+    function hideInputStringOpt() {
+            document.getElementById("formInventory").style.display = "none";
         }
+    function showFormNoInventory() {
+            document.getElementById("formNoInventory").style.display = "block";
+        }
+    function hideFormNoInventory() {
+            document.getElementById("formNoInventory").style.display = "none";
+        }
+
+    const inputFieldRacketType = document.getElementById('racketType');
+    const inputFieldMainString = document.getElementById('mainString');
+    const inputFieldCrossString = document.getElementById('crossString');
+    const inputFieldTensionMain = document.getElementById('tennionMain');
+    const inputFieldTensionCross = document.getElementById('tenisonCross');
+    const continueButtonFromAddress = document.getElementById('continueButtonFromInventory');
+    const continueButtonFromNoAddress = document.getElementById('continueButtonFromNoInventory');
+
+    inputFieldRacketType.addEventListener('input', activateContinue);
+    inputFieldMainString.addEventListener('input', activateContinue);
+    inputFieldCrossString.addEventListener('input', activateContinue);
+    inputFieldTensionMain.addEventListener('input', activateContinue);
+    inputFieldTensionCross.addEventListener('input', activateContinue);
+
+    function activateContinue() {
+        const inputRacketTypeFilled = inputFieldRacketType.value.trim() !== '';
+        const inputMainStringFilled = inputFieldMainString.value.trim() !== '';
+        const inputCrossStringFilled = inputFieldCrossString.value.trim() !== '';
+    }
+
+
 </script>
 {% endblock %}
