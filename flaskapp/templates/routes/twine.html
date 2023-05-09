@@ -44,7 +44,7 @@
                 Strings requested in mains?
             </label>
             <label>
-                <input type="radio" name="stringMain" value="10" id="mainString" required>
+                <input type="radio" name="stringMain" value="10" id="mainString1" required>
                 Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
                 <strong>
                     $5
@@ -52,7 +52,7 @@
             </label>
             <br>
             <label>
-                <input type="radio" name="stringMain" id="mainString" value="12">
+                <input type="radio" name="stringMain" id="mainString2" value="12">
                 Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
                 <strong>
                     $6
@@ -60,7 +60,7 @@
             </label>
             <br>
             <label>
-                <input type="radio" name="stringMain" id="mainString" value="8">
+                <input type="radio" name="stringMain" id="mainString3" value="8">
                 Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
                 <strong>
                     $4
@@ -71,7 +71,7 @@
                 Strings requested in crosses?
             </label>      
             <label>
-                <input type="radio" name="stringCross" id="crossString" value="10" required>
+                <input type="radio" name="stringCross" id="crossString1" value="10" required>
                 Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
                 <strong>
                     $5
@@ -79,7 +79,7 @@
             </label>
             <br>
             <label>
-                <input type="radio" name="stringCross" id="crossString" value="12">
+                <input type="radio" name="stringCross" id="crossString2" value="12">
                 Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
                 <strong>
                     $6
@@ -87,7 +87,7 @@
             </label>
             <br>
             <label>
-                <input type="radio" name="stringCross" id="crossString" value="8">
+                <input type="radio" name="stringCross" id="crossString3" value="8">
                 Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
                 <strong>
                     $4
@@ -114,7 +114,6 @@
                 I will supplement this with the most similar string in my inventory. <br>
                 Please make a selection for the main and cross strings above, and I will edit <br>
                 the decision with the appropriate string time if needed. <br>
-                Enter N/A if not applicable.
             </label>
             <div class="col-md-4">
                 <input type="text" id="prefferedString" class="form-control text-center" placeholder="Tourna Big Hitter Black 7">
@@ -131,7 +130,7 @@
     <!--if not using my inventory-->
     <div id="formNoInventory" style="display: none">
         <div class="row align-items-center">
-            <button onclick="window.location.href='/schedule'" type="button" class="btn btn-center btn-large btn-success" id="continueButtonFromNoInventory" disabled>
+            <button onclick="window.location.href='/schedule'" type="button" class="btn btn-center btn-large btn-success" id="continueButtonFromNoInventory">
                 Schedule Delivery
             </button>
         </div>
@@ -155,26 +154,37 @@
         }
 
     const inputFieldRacketType = document.getElementById('racketType');
-    const inputFieldMainString = document.getElementById('mainString');
-    const inputFieldCrossString = document.getElementById('crossString');
-    const inputFieldTensionMain = document.getElementById('tennionMain');
-    const inputFieldTensionCross = document.getElementById('tenisonCross');
+    const inputFieldMainString1 = document.getElementById('mainString1');
+    const inputFieldMainString2 = document.getElementById('mainString2');
+    const inputFieldMainString3 = document.getElementById('mainString3');
+    const inputFieldCrossString1 = document.getElementById('crossString1');
+    const inputFieldCrossString2 = document.getElementById('crossString2');
+    const inputFieldCrossString3 = document.getElementById('crossString3');
+    const inputFieldTensionMain = document.getElementById('tensionMain');
+    const inputFieldTensionCross = document.getElementById('tensionCross');
+    const inputFieldPrefferedString = document.getElementById('prefferedString');
     const continueButtonFromAddress = document.getElementById('continueButtonFromInventory');
-    const continueButtonFromNoAddress = document.getElementById('continueButtonFromNoInventory');
 
     inputFieldRacketType.addEventListener('input', activateContinue);
-    inputFieldMainString.addEventListener('input', activateContinue);
-    inputFieldCrossString.addEventListener('input', activateContinue);
+    inputFieldMainString1.addEventListener('input', activateContinue);
+    inputFieldMainString2.addEventListener('input', activateContinue);
+    inputFieldMainString3.addEventListener('input', activateContinue);
+    inputFieldCrossString1.addEventListener('input', activateContinue);
+    inputFieldCrossString2.addEventListener('input', activateContinue);
+    inputFieldCrossString3.addEventListener('input', activateContinue);
     inputFieldTensionMain.addEventListener('input', activateContinue);
     inputFieldTensionCross.addEventListener('input', activateContinue);
+    inputFieldPrefferedString.addEventListener('input', activateContinue);
 
     function activateContinue() {
         const inputRacketTypeFilled = inputFieldRacketType.value.trim() !== '';
-        const inputMainStringFilled = inputFieldMainString.value.trim() !== '';
-        const inputCrossStringFilled = inputFieldCrossString.value.trim() !== '';
-        const
+        const inputMainStringFilled = inputFieldMainString1.checked || inputFieldMainString2.checked || inputFieldMainString3.checked;
+        const inputCrossStringFilled = inputFieldCrossString1.checked || inputFieldCrossString2.checked || inputFieldCrossString3.checked;
+        const inputTensionMainFilled = inputFieldTensionMain.value.trim() !== '';
+        const inputTensionCrossFilled = inputFieldTensionCross.value.trim() !== '';
+        const inputPrefferedStringFilled = inputFieldPrefferedString.value.trim() !== '';
+
+        continueButtonFromAddress.disabled = !(inputRacketTypeFilled && ((inputMainStringFilled && inputCrossStringFilled) || inputPrefferedStringFilled) && inputTensionMainFilled && inputTensionCrossFilled);
     }
-
-
 </script>
 {% endblock %}
