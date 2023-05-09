@@ -1,0 +1,136 @@
+{% extends "routes/layout.html" %}
+{% block title %}
+    Order Information
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<div class="container text-center">
+    <h2 class="text-center">
+        Let's Talk Twine
+    </h2>
+    <div>
+        <label>
+            Would you like to use our string inventory? <br>
+            <a href ="{{ url_for('routes.string') }}">Here</a>, you can learn about what we carry and why! <br>
+            You should check this out before making selections!
+        </label>
+    </div>
+    <br>
+    <div>
+        <label>
+            <input type="radio" name="stringSource" value="yes" required onclick="showInputStringOpt()">
+            I will use the inventory!
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="stringSource" value="no" onclick="hideInputStringOpt()">
+            I will provide the string with the Racket!
+        </label>
+    </div>
+    <br>
+
+    <!--if using my inventory-->
+    <div id="formTwineTalk" style="display: none;">
+        <div class="form-group">
+            <label for="formRacket">
+                What kind of racket do you use?
+            </label>
+            <input type="text" id="formRacket" class="form-control" placeholder="Babolat Pure Aero">
+        </div>
+        <br>
+        <div>
+            <label>
+                Strings requested in mains?
+            </label>
+        </div>
+        <div>
+            <label><input type="radio" name="stringMain" value="10" required>
+                Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
+                <strong>
+                    $5
+                </strong>
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="stringMain" value="12">
+                Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
+                <strong>
+                    $6
+                </strong>
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="stringMain" value="8">
+                Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
+                <strong>
+                    $4
+                </strong>
+            </label>
+        </div> 
+        <br>
+        <div>
+            <label>
+                Strings requested in crosses?
+            </label>
+        </div>
+        <div>
+            <label><input type="radio" name="stringCross" value="10" required>
+                Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
+                <strong>
+                    $5
+                </strong>
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="stringCross" value="12">
+                Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
+                <strong>
+                    $6
+                </strong>
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="stringCross" value="8">
+                Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
+                <strong>
+                    $4
+                </strong>
+            </label>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="tensionMain">
+                Tension requested in mains? Enter "0" if you are not sure!
+            </label>
+            <input type="number" id="tensionMain" class="form-control" placeholder="0">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="tensionCross">
+                Tension requested in crosses? Enter "0" if you are not sure!
+            </label>
+            <input type="number" id="tensionCross" class="form-control" placeholder="0">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="prefferedString">
+                If your preferred type is not available, please enter the current string that you use. 
+                I will supplement this with the most similar string in my inventory.
+            </label>
+            <input type="text" id="prefferedString" class="form-control" placeholder="Tourna Big Hitter Black 7">
+        </div>
+    </div>  
+</div>
+<br><br><br>
+
+<!--Javascript functions-->
+<script>
+    function showInputStringOpt() {
+            document.getElementById("formTwineTalk").style.display = "block";
+        }
+        function hideInputStringOpt() {
+            document.getElementById("formTwineTalk").style.display = "none";
+        }
+</script>
+{% endblock %}

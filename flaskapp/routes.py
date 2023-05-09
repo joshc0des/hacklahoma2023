@@ -40,3 +40,7 @@ def payment():
 @bp.route("/contact/", methods=('GET', 'POST'))
 def contact():
     return render_template("routes/contact.html")
+
+@bp.route("/twine/", methods=('GET', 'POST'))
+def twine():
+    return render_template("routes/twine.html")

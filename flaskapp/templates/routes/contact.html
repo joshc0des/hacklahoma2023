@@ -5,67 +5,99 @@
 
 {% block content %}
 <br><br><br>
-<div class="container">
-    <h2 class="text-center">Contact Info</h2>
-        <div class="form-group">
-            <label for="formName">Name:</label>
-            <input type="text" id="formName" class="form-control" placeholder="First Last" required>
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="formPhone">Phone Number:</label>
-            <br>
-            <small>Format: 1234567890</small>
-            <input type="tel" id="formPhone" class="form-control" pattern="[0-9]{10}"  placeholder="1234567890" required>
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="formEmail">Email:</label>
-            <input type="email" id="formEmail" class="form-control" placeholder="ex.ample@email.com" required>
+<div class="container text-center">
+    <h2 class="text-center">
+        Contact Info
+    </h2>
+        <div class="form-group row justify-content-center">
+            <div class="col-md-4">
+                <label for="formName">
+                    Name:
+                </label>
+                <input type="text" id="formName" class="form-control text-center" placeholder="First Last" size="30" required>
+                <br>
+                <label for="formPhone">
+                    Phone Number:
+                </label>
+                <br>
+                <small>
+                    Format: 1234567890
+                </small>
+                <input type="tel" id="formPhone" class="form-control text-center" pattern="[0-9]{10}"  placeholder="1234567890" size="10" maxlength="10" required>
+                <br>
+                <label for="formEmail">
+                    Email:
+                </label>
+                <input type="email" id="formEmail" class="form-control text-center" placeholder="ex.ample@email.com" size="40" required>
+            </div>
         </div>
         <br>
         <div>
-            <label>Would you like the pick-up/delivery service?</label>
+            <label>
+                Would you like the pick-up/delivery service?
+            </label>
         </div>
         <div>
-            <label><input type="radio" name="PU/D" value="0" required onclick="showInputAddr()">Yes, please!</label>
+            <label>
+                <input type="radio" name="PU/D" value="0" required onclick="showInputAddr()">
+                Yes, please!
+            </label>
             <br>
-            <label><input type="radio" name="PU/D" value="0" onclick="hideInputAddr()">No, I will bring my racket to you as well as pick it up!</label>
+            <label>
+                <input type="radio" name="PU/D" value="0" onclick="hideInputAddr()">
+                No, I will bring my racket to you as well as pick it up!
+            </label>
         </div>
         <br>
         <div id="formAddress" style="display: none;">
             <div>
-                <label>Where should I come to pick-up and deliver your racket?</label>
+                <label>
+                    Where should I come to pick-up and deliver your racket?
+                </label>
             </div>
             <br>
             <div class="form-group">
-                <label for="formStreet">Street Address:</label>
-                <input type="text" id="formStreet" class="form-control" placeholder="123 Main Street" required>
+                <label for="formStreet">
+                    Street Address:
+                </label>
+                <input type="text" id="formStreet" class="form-control" placeholder="123 Main Street" size="30" style="width: 40%" required>
             </div>
             <div class="form-group">
-                <label for="formApt">Apt/Suite/Other:</label>
-                <input type="text" id="formApt" class="form-control" placeholder="Apt. 1A">
+                <label for="formApt">
+                    Apt/Suite/Other:
+                </label>
+                <input type="text" id="formApt" class="form-control" placeholder="Apt. 1A" size="20">
             </div>
             <div class="form-group">
-                <label for="formCity">City:</label>
-                <input type="text" id="formCity" class="form-control" placeholder="City" required>
+                <label for="formCity">
+                    City:
+                </label>
+                <input type="text" id="formCity" class="form-control" placeholder="City" size="20" required>
             </div>
             <div class="form-group">
-                <label for="formState">State:</label>
-                <input type="text" id="formState" class="form-control" placeholder="State" required>
+                <label for="formState">
+                    State:
+                </label>
+                <input type="text" id="formState" class="form-control" placeholder="State" size="2" maxlength="2" required>
             </div>
             <div class="form-group">
-                <label for="formZip">ZIP Code:</label>
-                <input type="number" id="formZip" class="form-control" placeholder="12345" pattern="[0-9]{5}" required>
+                <label for="formZip">
+                    ZIP Code:
+                </label>
+                <input type="text" id="formZip" class="form-control" placeholder="12345" size="5" maxlength="5"  required>
             </div>
         </div>
     </div>
     <br>
     <div class="row align-items-center">
-        <button onclick="window.location.href='/Twine'" type="button" class="btn btn-center btn-lg btn-success">Twine Time</button>
+        <button onclick="window.location.href='/twine'" type="button" class="btn btn-center btn-lg btn-success">
+            Twine Time
+        </button>
     </div>
 </div>
 <br><br><br>
+
+<!--JavaScript Functions-->
 <script>
     function showInputAddr() {
             document.getElementById("formAddress").style.display = "block";
