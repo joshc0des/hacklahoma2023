@@ -17,9 +17,9 @@ def home():
 def success():
     return render_template("routes/success.html")
 
-@bp.route("/form/", methods=('GET', 'POST'))
-def form():
-    return render_template("routes/form.html")
+@bp.route("/schedule/", methods=('GET', 'POST'))
+def schedule():
+    return render_template("routes/schedule.html")
 
 @bp.route("/lesson/", methods=('GET', 'POST'))
 def lesson():
