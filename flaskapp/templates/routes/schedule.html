@@ -64,7 +64,7 @@
                         <h4 class="text-center">
                             Drop-Off Service
                         </h4>
-                        <button onclick="enableDeliveryButton2nd()" class="btn btn-success" id="deliveryService2" data-bs-toggle="modal" data-bs-target="#bookingsModal">
+                        <button onclick="enableContinueDeliveryButton()" class="btn btn-success" id="deliveryService2" data-bs-toggle="modal" data-bs-target="#bookingsModal" disabled>
                             Book Drop-Off
                         </button>
                     </div>
@@ -100,7 +100,7 @@
                         <h4 class="text-center">
                             Pick-Up Your Racket
                         </h4>
-                        <button onclick="enablePersonalButton()" class="btn btn-success" id="personalDelivery2" data-bs-toggle="modal" data-bs-target="#bookingsModal">
+                        <button onclick="enablePersonalButton2nd()" class="btn btn-success" id="personalDelivery2" data-bs-toggle="modal" data-bs-target="#bookingsModal" disabled>
                             Pick-Up Exchange
                         </button>
                     </div>
@@ -118,7 +118,7 @@
             </p>
             <div>
                 <label>
-                    <input type="checkbox" id="confirmLocation" name="understand" value="understand" required>
+                    <input onclick="enableContinuePersonalButton()" type="checkbox" id="confirmLocation" name="understand" value="understand" disabled>
                         I see where we are meeting!
                     </input>
                 </label>
@@ -169,43 +169,23 @@
             $('#bookingsModal').modal('show');
         }
 
-        const inputFieldConfDel1 = document.getElementById('confDel1');
-        const inputFieldConfDel2 = document.getElementById('confDel2');
-        const scheduleButtonDeliveryService1 = document.getElementById('deliveryService1');
-        const scheduleButtonDeliveryService2 = document.getElementById('deliveryService2');
-        const scheduleButtonPersonalDelivery1 = document.getElementById('personalDelivery1');
-        const scheduleButtonPersonalDelivery2 = document.getElementById('personalDelivery2');
-        const inputFieldConfirmLocation = document.getElementById('confirmLocation');
-        const continueButtonFromDeliveryService = document.getElementById('deliveryServiceContinue');
-        const continueButtonFromPersonalDelivery = document.getElementById('personalDeliveryContinue');
-
-        inputFieldConfDel1.addEventListener('input', activateContinue);
-        inputFieldConfDel2.addEventListener('input', activateContinue);
-        inputFieldConfirmLocation.addEventListener('input', activateContinue);
-
         function enableDeliveryButton1st() {
-            scheduleButtonDeliveryService1 = true;
+            document.getElementById('deliveryService2').disabled = false;
         }
-        function enableDeliveryButton2nd() {
-            scheduleButtonDeliveryService2 = true;
+        function enableContinueDeliveryButton() {
+            document.getElementById('deliveryServiceContinue').disabled = false;
         }
+
         function enablePersonalButton1st() {
-            scheduleButtonPersonalDelivery1 = true;
+            document.getElementById('personalDelivery2').disabled = false;
         }
         function enablePersonalButton2nd() {
-            scheduleButtonPersonalDelivery2 = true;
+            document.getElementById('confirmLocation').disabled = false;
         }
 
-        function activateContinue() {
-            const inputConfDelFilled = inputFieldConfDel1.checked || inputFieldConfDel2.checked;
-            const buttonScheduleDeliveryServiceOpened = scheduleButtonDeliveryService1 && scheduleButtonDeliveryService2;
-            const buttonSchedulePersonalDeliveryOpened = scheduleButtonPersonalDelivery1 && scheduleButtonPersonalDelivery2;
-            const inputConfirmLocationFilled = inputFieldConfirmLocation.checked;
-
-            continueButtonFromDeliveryService.disabled = !(inputConfDelFilled && buttonScheduleDeliveryServiceOpened);
-            continueButtonFromPersonalDelivery.disabled = !(inputConfDelFilled && buttonSchedulePersonalDeliveryOpened && inputConfirmLocationFilled);
-        };
-
+        function enableContinuePersonalButton() {
+            document.getElementById('personalDeliveryContinue').disabled = false;
+        }
         // function addValues() {
         //     let radiosMain = document.getElementsByName("stringMain");
         //     let radiosCross = document.getElementsByName("stringCross");
