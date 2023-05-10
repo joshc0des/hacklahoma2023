@@ -4,134 +4,107 @@
 {% endblock %}
 
 {% block content %}
+<div class="modal fade modal-dialog modal-xl modal-dialog-centered" style="height: 100vh; display: none; top:0" id="bookingsModal">
+    <div class="modal-dialog" >
+        <div class="modal-content" style="height: 90vh">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="id01">Microsoft Bookings</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body"> 
+                    <iframe src="https://outlook.office.com/bookwithme/user/b7be5bd6e43a413fadb7c2c35e92cd6f%40ou.edu/meetingtype/d9DUtDEmJEW4vQeTvReOkg2?anonymous" title="Microsoft Bookings" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
 <br><br><br>
-    <div class="container">
-        <div class="row align-items-start">
-            <!--Delivery Service collumn-->
-            <div class="col">
-                <h2 class="text-center">The Exchange</h2>
+<div class="container text-center">
+    <h2 class="text-center">
+        The Exchange
+    </h2>
+    <div class="form-group row justify-content-center">
+                <label for="confDel">
+                    Please confirm your desired means of transfer of the racket! <font color="red">*</font>
+                </label>
                 <div>
-                    <label>Please confirm your desired means of transfer of the racket!</label>
-                </div>
-                <div>
-                    <label><input type="radio" name="confDel" value="5" required onclick="showInputCoordination(), hideInputThanks()">Let's do the pick-up/delivery service! <strong>$5</strong></label>
+                    <label>
+                        <input type="radio" name="confDel" value="5" required onclick="showInputCoordination(), hideInputThanks()">
+                        Let's do the pick-up/delivery service! 
+                        <font color="success">
+                            $5
+                        </font>
+                    </label>
                     <br>
-                    <label><input type="radio" name="confDel" value="0" onclick="hideInputCoordination(), showInputThanks()">I will be transporting my own racket!</label>
+                    <label>
+                        <input type="radio" name="confDel" value="0" onclick="hideInputCoordination(), showInputThanks()">
+                        Transport your racket!
+                    </label>
                 </div>
-                    <div id="formCoordination" style="display: none;">
+                
+                <!--schedule delivery-->
+                <div id="formCoordination" style="display: none;">
+                    <br>
+                    <h4 class="text-center">
+                        Pick-Up
+                    </h4>
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">
+                        Book Your Pick-Up
+                    </button>
+                    <br><br>
+                    <h4 class="text-center">
+                        Drop-Off
+                    </h4>
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">
+                        Book Your Drop-Off
+                    </button>
+                    <br><br>
+                    <p class="text-center">
+                        As a student at OU, I must work around my academic schedule and obligations, so please be understanding if the 
+                        times listed above must be altered. However, there will be no issue with matching the dates listed. I will be in contact upon 
+                        the submission of this form in order to correlate the exchange properly, so any uncertainties in times will be addressed!
+                    </p>
+                    <br><br><br>
+                </div>
+                
+                <!--schedule meeting-->
+                <div id="formThanks" style="display: none;">
+                    <br><hr>
+                    <h4 class="text-center">This works too!</h4>
+                    <p class="text-center">Please provide three dates and times for you to transport the racket to the Lloyd Noble Center.
+                        I will contact you following the submission of this form with a date and time that works congruently with my academic schedule! If 
+                        I am unable to meet at the provided times, I will reach out to better correlate the transaction of the racket.</p>
+                    <br><hr>
+                    <h4 class="text-center">
+                        Pick-Up
+                    </h4>
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">
+                        Pick-Up Exchange
+                    </button>
+                    <br><br>
+                    <h4 class="text-center">
+                        Drop-Off
+                    </h4>
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">
+                        Drop-Off Exchange
+                    </button>
+                    <br><br><hr>
+                    <p class="text-center">We will meet at the address pasted below. I will be located at the campus transit bus stop on the north face of the building!</p>
+                    <br>
+                    <p class="text-center">2900 S Jenkins Ave<br>Norman, OK 73019<br>United States</p>
+                    <br>
+                    <div>
+                        <label>Please confirm that the address listed above will be the location of meeting!</label>
                         <br>
-                        <p class="text-center">You answered "yes" to the pick-up / delivery service. Please ensure that the address you entered in the left collumn is 
-                            both correct and the proper location for both exchanges! The $5 charge is flat rate for any location within a 20 mile radius of the University.
-                            Each additional mile is 75 cents. Please see the <strong>"Radius of Travel"</strong> tab in the navigation bar for more information.</p>
                         <br>
-                        <label><input type="radio" name=confSel value="deliverySerice" required>My address in the <strong>"Contact Info"</strong> collumn 
-                        is correct!</label>
-                        <br>
-                        <br>
-                        <h4 class="text-center">Pick-Up</h4>
-                        <br>
-                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">
-                            Book Your Pick-Up
-                        </button>
-                        <div class="modal fade modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" id="bookingsModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="id01">Microsoft Bookings</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body"> 
-                                            <iframe src="https://outlook.office.com/bookwithme/user/b7be5bd6e43a413fadb7c2c35e92cd6f%40ou.edu/meetingtype/d9DUtDEmJEW4vQeTvReOkg2?anonymous" title="Microsoft Bookings" style="border:3px solid rgb(25, 135, 84);" width="100%" height="100%"></iframe>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">Complete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>  
-                        <br>
-                        <h4 class="text-center">Drop-Off</h4>
-                        <br>
-                        <div class="form-group">
-                            <label for="dateDropOff">By what date would you like your racket delivered?</label>
-                            <input type="date" id="dateDropOff" class="form-control">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="timeDropOff">What time will be convenient to deposit this racket on the date listed directly above?</label>
-                            <input type="time" id="timeDropOff" class="form-control">
-                        </div>
-                        <br>
-                        <p class="text-center">As a student at OU, I must work around my academic schedule and obligations, so please be understanding if the 
-                            times listed above must be altered. However, there will be no issue with matching the dates listed. I will be in contact upon 
-                            the submission of this form in order to correlate the exchange properly, so any uncertainties in times will be addressed!</p>
-                        <br>
-                        <br>
-                        <br>
+                        <label><input type="radio" name="understand" value="understand" required>I see where we are meeting!</input></label>
                     </div>
-                    <div id="formThanks" style="display: none;">
-                        <br>
-                        <h4 class="text-center">This works too!</h4>
-                        <br>
-                        <p class="text-center">Please provide three dates and times for you to transport the racket to the Lloyd Noble Center.
-                            I will contact you following the submission of this form with a date and time that works congruently with my academic schedule! If 
-                            I am unable to meet at the provided times, I will reach out to better correlate the transaction of the racket.</p>
-                        <br> 
-                        <h4 class="text-center">Date / Time #1</h4>
-                        <br>
-                        <div class="form-group">
-                            <label for="date1">Date #1</label>
-                            <input type="date" id="date1" class="form-control">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="time1">Time #1</label>
-                            <input type="time" id="time1" class="form-control">
-                        </div>
-                        <br>
-                        <h4 class="text-center">Date / Time #2</h4>
-                        <br>
-                        <div class="form-group">
-                            <label for="date2">Date #2</label>
-                            <input type="date" id="date2" class="form-control">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="time2">Time #2</label>
-                            <input type="time" id="time2" class="form-control">
-                        </div>
-                        <br>
-                        <h4 class="text-center">Date / Time #3</h4>
-                        <br>
-                        <div class="form-group">
-                            <label for="date3">Date #3</label>
-                            <input type="date" id="date3" class="form-control">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="time3">Time #3</label>
-                            <input type="time" id="time3" class="form-control">
-                        </div>
-                        <br>
-                        <h4 class="text-center">Location</h4>
-                        <br>
-                        <p class="text-center">We will meet at the address pasted below. I will be located at the campus transit bus stop on the north face of the building!</p>
-                        <br>
-                        <p class="text-center">2900 S Jenkins Ave<br>Norman, OK 73019<br>United States</p>
-                        <br>
-                        <div>
-                            <label>Please confirm that the address listed above will be the location of meeting!</label>
-                            <br>
-                            <br>
-                            <label><input type="radio" name="understand" value="understand" required>I see where we are meeting!</input></label>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
 
-                    </div>
+                </div>
             </div>
             <br>
             <button type="button" class="btn btn-center btn-dark" onclick="addValues()">Calculate Total*</button>
@@ -152,10 +125,8 @@
             <hr>
             <br>
             <br>
-            <br>
-        </div>  
+            <br> 
     </div>
-
     <script>
         function showInputStringOpt() {
             document.getElementById("formTwineTalk").style.display = "block";

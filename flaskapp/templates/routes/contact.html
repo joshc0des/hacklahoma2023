@@ -9,96 +9,96 @@
     <h2 class="text-center">
         Contact Info
     </h2>
+    <div class="form-group row justify-content-center">
+        <div class="col-md-4">
+            <label for="formName">
+                Name: <font color="red">*</font>
+            </label>
+            <input type="text" id="formName" class="form-control text-center" placeholder="First Last" size="30" required>
+            <br>
+            <label for="formPhone">
+                Phone Number: <font color="red">*</font>
+            </label>
+            <br>
+            <small>
+                Format: 1234567890
+            </small>
+            <input type="tel" id="formPhone" class="form-control text-center" placeholder="1234567890" size="10" maxlength="10" required>
+            <br>
+            <label for="formEmail">
+                Email: <font color="red">*</font>
+            </label>
+            <input type="email" id="formEmail" class="form-control text-center" placeholder="ex.ample@email.com" size="40" required>
+        </div>
+    </div>
+    <br>
+    <div>
+        <label>
+            Would you like the pick-up/delivery service? <font color="red">*</font>
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="radio" name="PU/D" value="0" required onclick="showInputAddr(), hideInputNoAddr()">
+            Yes, please!
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="PU/D" value="0" onclick="hideInputAddr(), showInputNoAddr()">
+            No, I will transport my own racket!
+        </label>
+    </div>
+    <br>
+
+    <!--Address Display Option-->
+    <div id="formAddress" style="display: none;">
+        <div>
+            <label>
+                Where should I come to pick-up and deliver your racket?
+            </label>
+        </div>
+        <br>
         <div class="form-group row justify-content-center">
             <div class="col-md-4">
-                <label for="formName">
-                    Name: <font color="red">*</font>
+                <label for="formStreet">
+                    Street Address: <font color="red">*</font>
                 </label>
-                <input type="text" id="formName" class="form-control text-center" placeholder="First Last" size="30" required>
-                <br>
-                <label for="formPhone">
-                    Phone Number: <font color="red">*</font>
+                <input type="text" id="formStreet" class="form-control text-center" placeholder="123 Main Street" size="30" required>
+                <label for="formApt">
+                    Apt/Suite/Other:
                 </label>
-                <br>
-                <small>
-                    Format: 1234567890
-                </small>
-                <input type="tel" id="formPhone" class="form-control text-center" placeholder="1234567890" size="10" maxlength="10" required>
-                <br>
-                <label for="formEmail">
-                    Email: <font color="red">*</font>
+                <input type="text" id="formApt" class="form-control" placeholder="Apt. 1A" size="20">
+                <label for="formCity">
+                    City: <font color="red">*</font>
                 </label>
-                <input type="email" id="formEmail" class="form-control text-center" placeholder="ex.ample@email.com" size="40" required>
+                <input type="text" id="formCity" class="form-control" placeholder="City" size="20" required>
+                <label for="formState">
+                    State: <font color="red">*</font>
+                </label>
+                <input type="text" id="formState" class="form-control" placeholder="State" size="2" maxlength="2" required>
+                <label for="formZip">
+                    ZIP Code: <font color="red">*</font>
+                </label>
+                <input type="text" id="formZip" class="form-control" placeholder="12345" size="5" maxlength="5"  required>
             </div>
-        </div>
-        <br>
-        <div>
-            <label>
-                Would you like the pick-up/delivery service? <font color="red">*</font>
-            </label>
-        </div>
-        <div>
-            <label>
-                <input type="radio" name="PU/D" value="0" required onclick="showInputAddr(), hideInputNoAddr()">
-                Yes, please!
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="PU/D" value="0" onclick="hideInputAddr(), showInputNoAddr()">
-                No, I will transport my own racket!
-            </label>
-        </div>
-        <br>
-
-        <!--Address Display Option-->
-        <div id="formAddress" style="display: none;">
-            <div>
-                <label>
-                    Where should I come to pick-up and deliver your racket?
-                </label>
-            </div>
-            <br>
-            <div class="form-group row justify-content-center">
-                <div class="col-md-4">
-                    <label for="formStreet">
-                        Street Address: <font color="red">*</font>
-                    </label>
-                    <input type="text" id="formStreet" class="form-control text-center" placeholder="123 Main Street" size="30" required>
-                    <label for="formApt">
-                        Apt/Suite/Other:
-                    </label>
-                    <input type="text" id="formApt" class="form-control" placeholder="Apt. 1A" size="20">
-                    <label for="formCity">
-                        City: <font color="red">*</font>
-                    </label>
-                    <input type="text" id="formCity" class="form-control" placeholder="City" size="20" required>
-                    <label for="formState">
-                        State: <font color="red">*</font>
-                    </label>
-                    <input type="text" id="formState" class="form-control" placeholder="State" size="2" maxlength="2" required>
-                    <label for="formZip">
-                        ZIP Code: <font color="red">*</font>
-                    </label>
-                    <input type="text" id="formZip" class="form-control" placeholder="12345" size="5" maxlength="5"  required>
-                </div>
-                <div class="row align-items-center">
-                    <button onclick="window.location.href='/twine'" type="button" class="btn btn-center btn-lg btn-success" id="continueButtonFromAddress" disabled>
-                        Twine Time
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!--NoAddress Display Option-->
-        <div id="formNoAddress" style="display: none;">
             <div class="row align-items-center">
-                <button onclick="window.location.href='/twine'" type="button" class="btn btn-center btn-lg btn-success" id="continueButtonFromNoAddress" disabled>
+                <button onclick="window.location.href='/twine'" type="button" class="btn btn-center btn-lg btn-success" id="continueButtonFromAddress" disabled>
                     Twine Time
                 </button>
             </div>
         </div>
-        <br>
-        <p><font color="red">*</font> Required</p>
+    </div>
+
+    <!--NoAddress Display Option-->
+    <div id="formNoAddress" style="display: none;">
+        <div class="row align-items-center">
+            <button onclick="window.location.href='/twine'" type="button" class="btn btn-center btn-lg btn-success" id="continueButtonFromNoAddress" disabled>
+                Twine Time
+            </button>
+        </div>
+    </div>
+    <br>
+    <p><font color="red">*</font> Required</p>
     </div>
 </div>
 <br><br><br>
