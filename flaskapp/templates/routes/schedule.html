@@ -23,96 +23,121 @@
         The Exchange
     </h2>
     <div class="form-group row justify-content-center">
-                <label for="confDel">
-                    Please confirm your desired means of transfer of the racket! <font color="red">*</font>
-                </label>
-                <div>
-                    <label>
-                        <input type="radio" name="confDel" value="5" required onclick="showInputCoordination(), hideInputThanks()">
-                        Let's do the pick-up/delivery service! 
-                        <font color="success">
-                            $5
-                        </font>
-                    </label>
-                    <br>
-                    <label>
-                        <input type="radio" name="confDel" value="0" onclick="hideInputCoordination(), showInputThanks()">
-                        Transport your racket!
-                    </label>
-                </div>
-                
-                <!--schedule delivery-->
-                <div id="formCoordination" style="display: none;">
-                    <br>
-                    <h4 class="text-center">
-                        Pick-Up
-                    </h4>
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">
-                        Book Your Pick-Up
-                    </button>
-                    <br><br>
-                    <h4 class="text-center">
-                        Drop-Off
-                    </h4>
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">
-                        Book Your Drop-Off
-                    </button>
-                    <br><br>
-                    <p class="text-center">
-                        As a student at OU, I must work around my academic schedule and obligations, so please be understanding if the 
-                        times listed above must be altered. However, there will be no issue with matching the dates listed. I will be in contact upon 
-                        the submission of this form in order to correlate the exchange properly, so any uncertainties in times will be addressed!
-                    </p>
-                    <br><br><br>
-                </div>
-                
-                <!--schedule meeting-->
-                <div id="formThanks" style="display: none;">
-                    <br><hr>
-                    <h4 class="text-center">This works too!</h4>
-                    <p class="text-center">Please provide three dates and times for you to transport the racket to the Lloyd Noble Center.
-                        I will contact you following the submission of this form with a date and time that works congruently with my academic schedule! If 
-                        I am unable to meet at the provided times, I will reach out to better correlate the transaction of the racket.</p>
-                    <br><hr>
-                    <h4 class="text-center">
-                        Pick-Up
-                    </h4>
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">
-                        Pick-Up Exchange
-                    </button>
-                    <br><br>
-                    <h4 class="text-center">
-                        Drop-Off
-                    </h4>
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingsModal">
-                        Drop-Off Exchange
-                    </button>
-                    <br><br><hr>
-                    <p class="text-center">We will meet at the address pasted below. I will be located at the campus transit bus stop on the north face of the building!</p>
-                    <br>
-                    <p class="text-center">2900 S Jenkins Ave<br>Norman, OK 73019<br>United States</p>
-                    <br>
-                    <div>
-                        <label>Please confirm that the address listed above will be the location of meeting!</label>
-                        <br>
-                        <br>
-                        <label><input type="radio" name="understand" value="understand" required>I see where we are meeting!</input></label>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+        <label for="confDel">
+            Please confirm your desired means of transfer of the racket! <font color="red">*</font>
+        </label>
+        <div>
+            <label>
+                <input type="radio" id="confDel1" name="confDel" value="5" required onclick="showInputCoordination(), hideInputThanks()">
+                Let's do the pick-up/delivery service! 
+                <font color="success">
+                    $5
+                </font>
+            </label>
+            <br>
+            <label>
+                <input type="radio" id="confDel2" name="confDel" value="0" onclick="hideInputCoordination(), showInputThanks()">
+                Transport your racket!
+            </label>
+        </div>
 
+        <!--schedule delivery-->
+        <div id="formCoordination" style="display: none;">
+            <br><hr>
+            <h4 class="text-center">
+                Schedule the Delivery Service
+            </h4>
+            <p class="text-center">
+                Please select two days and times for your racket to be (1) picked up and (2) delivered to the address you provided.
+            </p>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h4 class="text-center">
+                            Pick-Up Service
+                        </h4>
+                        <button onclick="enableDeliveryButton1st()" class="btn btn-success" id="deliveryService1" data-bs-toggle="modal" data-bs-target="#bookingsModal">
+                            Book Pick-Up
+                        </button>
+                    </div>
+                        <div class="col">
+                        <h4 class="text-center">
+                            Drop-Off Service
+                        </h4>
+                        <button onclick="enableDeliveryButton2nd()" class="btn btn-success" id="deliveryService2" data-bs-toggle="modal" data-bs-target="#bookingsModal">
+                            Book Drop-Off
+                        </button>
+                    </div>
                 </div>
             </div>
             <br>
+            <button onclick="window.location.href='/lesson'" type="button" id="deliveryServiceContinue" class="btn btn-center btn-lg btn-success" disabled>
+                Last Question
+            </button>
+            <br><br><br><br>
+        </div>
+        
+        <!--schedule meeting-->
+        <div id="formThanks" style="display: none;">
+            <br><hr>
+            <h4 class="text-center">
+                Schedule the exchange
+            </h4>
+            <p class="text-center">
+                Please select two days and times for you to (1) transport and (2) recieve the racket to the Lloyd Noble Center.
+            </p>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h4 class="text-center">
+                            Drop-Off Your Racket
+                        </h4>
+                        <button onclick="enablePersonalButton1st()" class="btn btn-success" id="personalDelivery1" data-bs-toggle="modal" data-bs-target="#bookingsModal">
+                            Drop-Off Exchange
+                        </button>
+                    </div>
+                    <div class="col">
+                        <h4 class="text-center">
+                            Pick-Up Your Racket
+                        </h4>
+                        <button onclick="enablePersonalButton()" class="btn btn-success" id="personalDelivery2" data-bs-toggle="modal" data-bs-target="#bookingsModal">
+                            Pick-Up Exchange
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center">
+                We will meet at the address pasted below. I will be located at the campus transit bus stop on the north face of the building! <br>
+                Please confirm that the address listed above will be the location of meeting.
+            </p>
+            <p class="text-center">
+                2900 S Jenkins Ave <br>
+                Norman, OK 73019 <br>
+                United States
+            </p>
+            <div>
+                <label>
+                    <input type="checkbox" id="confirmLocation" name="understand" value="understand" required>
+                        I see where we are meeting!
+                    </input>
+                </label>
+            </div>
+            <br>
+            <button onclick="window.location.href='/lesson'" type="button" id="personalDeliveryContinue" class="btn btn-center btn-lg btn-success" disabled>
+                Last Question
+            </button>
+            <br><br><br><br>
+        </div>
+
+    </div>
+</div>
+            <!-- <br>
             <button type="button" class="btn btn-center btn-dark" onclick="addValues()">Calculate Total*</button>
             <div id="output" class="text-center fs-1"></div>
             <br>
             <hr>
             <br>
-            <button onclick="window.location.href='/lesson'" type="button" class="btn btn-center btn-lg btn-success">Just a one more question...</button>
             <br>
             <hr>
             <br>
@@ -125,15 +150,9 @@
             <hr>
             <br>
             <br>
-            <br> 
-    </div>
+            <br>  -->
+
     <script>
-        function showInputStringOpt() {
-            document.getElementById("formTwineTalk").style.display = "block";
-        }
-        function hideInputStringOpt() {
-            document.getElementById("formTwineTalk").style.display = "none";
-        }
         function showInputCoordination() {
             document.getElementById("formCoordination").style.display = "block";
         }
@@ -150,43 +169,80 @@
             $('#bookingsModal').modal('show');
         }
 
-        function addValues() {
-            let radiosMain = document.getElementsByName("stringMain");
-            let radiosCross = document.getElementsByName("stringCross");
-            let radiosDel = document.getElementsByName("confDel");
-            let radiosStringOption = document.getElementsByName("stringSource");
-            let sum = 10;
+        const inputFieldConfDel1 = document.getElementById('confDel1');
+        const inputFieldConfDel2 = document.getElementById('confDel2');
+        const scheduleButtonDeliveryService1 = document.getElementById('deliveryService1');
+        const scheduleButtonDeliveryService2 = document.getElementById('deliveryService2');
+        const scheduleButtonPersonalDelivery1 = document.getElementById('personalDelivery1');
+        const scheduleButtonPersonalDelivery2 = document.getElementById('personalDelivery2');
+        const inputFieldConfirmLocation = document.getElementById('confirmLocation');
+        const continueButtonFromDeliveryService = document.getElementById('deliveryServiceContinue');
+        const continueButtonFromPersonalDelivery = document.getElementById('personalDeliveryContinue');
 
-            if (radiosStringOption[0].checked)
-            {
-                for (let i = 0; i < radiosMain.length; ++i)
-                {
-                    if (radiosMain[i].checked)
-                    {
-                        sum += (Number(radiosMain[i].value)) / 2;
-                    }
-                }
+        inputFieldConfDel1.addEventListener('input', activateContinue);
+        inputFieldConfDel2.addEventListener('input', activateContinue);
+        inputFieldConfirmLocation.addEventListener('input', activateContinue);
 
-                for (let i = 0; i < radiosCross.length; ++i)
-                {
-                    if (radiosCross[i].checked)
-                    {
-                        sum += (Number(radiosCross[i].value)) / 2;
-                    }
-                }
-            }
-
-            for (let i = 0; i < radiosDel.length; ++i)
-            {
-                if (radiosDel[i].checked)
-                {
-                    sum += Number(radiosDel[i].value);
-                }
-            }
-
-            let outputDiv = document.getElementById("output");
-            outputDiv.innerHTML = "$" + sum;
+        function enableDeliveryButton1st() {
+            scheduleButtonDeliveryService1 = true;
         }
+        function enableDeliveryButton2nd() {
+            scheduleButtonDeliveryService2 = true;
+        }
+        function enablePersonalButton1st() {
+            scheduleButtonPersonalDelivery1 = true;
+        }
+        function enablePersonalButton2nd() {
+            scheduleButtonPersonalDelivery2 = true;
+        }
+
+        function activateContinue() {
+            const inputConfDelFilled = inputFieldConfDel1.checked || inputFieldConfDel2.checked;
+            const buttonScheduleDeliveryServiceOpened = scheduleButtonDeliveryService1 && scheduleButtonDeliveryService2;
+            const buttonSchedulePersonalDeliveryOpened = scheduleButtonPersonalDelivery1 && scheduleButtonPersonalDelivery2;
+            const inputConfirmLocationFilled = inputFieldConfirmLocation.checked;
+
+            continueButtonFromDeliveryService.disabled = !(inputConfDelFilled && buttonScheduleDeliveryServiceOpened);
+            continueButtonFromPersonalDelivery.disabled = !(inputConfDelFilled && buttonSchedulePersonalDeliveryOpened && inputConfirmLocationFilled);
+        };
+
+        // function addValues() {
+        //     let radiosMain = document.getElementsByName("stringMain");
+        //     let radiosCross = document.getElementsByName("stringCross");
+        //     let radiosDel = document.getElementsByName("confDel");
+        //     let radiosStringOption = document.getElementsByName("stringSource");
+        //     let sum = 10;
+
+        //     if (radiosStringOption[0].checked)
+        //     {
+        //         for (let i = 0; i < radiosMain.length; ++i)
+        //         {
+        //             if (radiosMain[i].checked)
+        //             {
+        //                 sum += (Number(radiosMain[i].value)) / 2;
+        //             }
+        //         }
+
+        //         for (let i = 0; i < radiosCross.length; ++i)
+        //         {
+        //             if (radiosCross[i].checked)
+        //             {
+        //                 sum += (Number(radiosCross[i].value)) / 2;
+        //             }
+        //         }
+        //     }
+
+        //     for (let i = 0; i < radiosDel.length; ++i)
+        //     {
+        //         if (radiosDel[i].checked)
+        //         {
+        //             sum += Number(radiosDel[i].value);
+        //         }
+        //     }
+
+        //     let outputDiv = document.getElementById("output");
+        //     outputDiv.innerHTML = "$" + sum;
+        // }
     </script>
 
 
