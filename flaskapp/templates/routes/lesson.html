@@ -4,48 +4,66 @@
 {% endblock %}
 
 {% block content %}
-<br>
-<br>
-<br>
-<h1 class="text-center">How About a Lesson?</h1>
-<p class="text-center">I would love to work with you on developing your game on the court! <br>
-The rate for an hour long private lesson is $20. After purchasing 3 string jobs, the private lesson is on me!</p>
+<br><br><br>
+<h1 class="text-center">
+    How About a Lesson?
+</h1>
+<p class="text-center">
+    I would love to work with you on developing your game on the court! <br>
+    The rate for an hour long private lesson is $20. After purchasing 3 string jobs, the private lesson is on me!
+</p>
 <br>
 <div class="text-center">
-    <label class="text-center">Would you like to meet up for some instruction?</label>
+    <label class="text-center">
+        Would you like to meet up for some instruction? <font color="red">*</font>
+    </label>
 </div>
 <div class="text-center">
-    <label><input type="radio" name="lesson" value="yes" required onclick="showInputLesson(), hideInputNoLesson()">Sure!</label>
+    <label>
+        <input type="radio" name="lesson" value="yes" required onclick="showInputLesson(), hideInputNoLesson()">
+        Sure!
+    </label>
     <br>
-    <label><input type="radio" name="lesson" value="no" onclick="hideInputLesson(), showInputNoLesson()">Maybe next time!</label>
+    <label>
+        <input type="radio" name="lesson" value="no" onclick="hideInputLesson(), showInputNoLesson()">
+        Maybe next time!
+    </label>
 </div>
-<br>
-    <div id="lessonFollowUp" style="display: none;">
-        <h4 class="text-center">Thats great to hear!</h4>
-        <p class="text-center">Please provide some specifics on what you would like to focus during the hour-long lesson. <br>
-        This way, we can maximize our time and your money!</p>
-        <div class="form-group text-center">
-            <label for="specificWork">Provide a few aspects of the game you would like to improve upon!</label>
-            <input type="text" id="specificWork" class="form-control mx-auto" style="width: 400px" placeholder="Serve, Volley, Backhand, etc.">
-            <br>
-            <hr>
-            <br>
-            <div class="row align-items-center">
-                <button onclick="window.location.href='/success'" type="button" class="btn btn-center btn-lg btn-success">Submit</button>
-            </div>
-        </div>
-    </div>
 
-    <div id="nextTime" style="display: none;">
-        <h4 class="text-center">I hope to see you out there soon!</h4>
-        <br>
+<!--Lesson Do-->
+<br>
+<div id="lessonFollowUp" style="display: none;">
+    <h4 class="text-center">
+        Thats great to hear!
+    </h4>
+    <br>
+    <div class="form-group text-center">
+        <label for="specificWork">
+            Provide a few aspects of the game you would like to improve upon! <font color="red">*</font>
+        </label>
+        <input type="text" id="specificWork" class="form-control mx-auto" style="width: 400px" placeholder="Serve, Volley, Backhand, etc.">
         <hr>
-        <br>
         <div class="row align-items-center">
-            <button onclick="window.location.href='/success'" type="button" class="btn btn-center btn-lg btn-success">Submit</button>
+            <button onclick="window.location.href='/success'" type="button" id="submitContinue" class="btn btn-center btn-lg btn-success" disabled>
+                Submit
+            </button>
         </div>
     </div>
-    <br>
+</div>
+
+<!--Lesson Don't-->
+<br>
+<div id="nextTime" style="display: none;">
+    <h4 class="text-center">
+        I hope to see you out there soon!
+    </h4>
+    <hr>
+    <div class="row align-items-center">
+        <button onclick="window.location.href='/success'" type="button" class="btn btn-center btn-lg btn-success">
+            Submit
+        </button>
+    </div>
+</div>
 
 <script>
     function showInputLesson() {
@@ -60,6 +78,17 @@ The rate for an hour long private lesson is $20. After purchasing 3 string jobs,
     function hideInputNoLesson() {
         document.getElementById("nextTime").style.display = "none";
     }
+
+    const inputFieldSpecificWork = document.getElementById('specificWork');
+    const continueButtonSubmitContinue = document.getElementById('submitContinue');
+
+    inputFieldSpecificWork.addEventListener('input', activateSubmit);
+
+    function activateSubmit() {
+        const inputSpecificWorkFilled = inputFieldSpecificWork.value.trim() !== '';
+        
+        continueButtonSubmitContinue.disabled = !(inputSpecificWorkFilled);
+    };
 </script>
 
 {% endblock %}
