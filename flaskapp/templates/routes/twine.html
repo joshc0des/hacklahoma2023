@@ -13,7 +13,7 @@
         <label>
             Would you like to use our string inventory? <br>
             <a href ="{{ url_for('routes.string') }}">Here</a>, you can learn about what we carry and why! <br>
-            You should check this out before making selections!
+            You should check this out before making selections! <font color="red">*</font>
         </label>
     </div>
     <br>
@@ -34,14 +34,14 @@
     <div id="formInventory" style="display: none;">
         <div class="form-group row justify-content-center">
             <label for="racketType">
-                What kind of racket do you use?
+                What kind of racket do you use? <font color="red">*</font>
             </label>
             <div class="col-md-4">
                 <input type="text" id="racketType" class="form-control text-center" placeholder="Babolat Pure Aero">
             </div>
             <br><br><br>
             <label>
-                Strings requested in mains?
+                Strings requested in mains? <font color="blue">*</font>
             </label>
             <label>
                 <input type="radio" name="stringMain" value="10" id="mainString1" required>
@@ -68,7 +68,7 @@
             </label>
             <br><br>
             <label>
-                Strings requested in crosses?
+                Strings requested in crosses? <font color="blue">*</font>
             </label>      
             <label>
                 <input type="radio" name="stringCross" id="crossString1" value="10" required>
@@ -95,14 +95,14 @@
             </label>
             <br><br>
             <label for="tensionMain">
-                Tension requested in mains? Enter "0" if you are not sure!
+                Tension requested in mains? <font color="red">*</font>
             </label>
             <div class="col-md-1">
                 <input type="number" id="tensionMain" class="form-control text-center" placeholder="##" min="40" max="70">
             </div>
             <br>
             <label for="tensionCross">
-                Tension requested in crosses? Enter "0" if you are not sure!
+                Tension requested in crosses? <font color="red">*</font>
             </label>
             <br>
             <div class="col-md-1">
@@ -113,7 +113,7 @@
                 If your preferred type is not available, please enter the current string that you use. <br>
                 I will supplement this with the most similar string in my inventory. <br>
                 Please make a selection for the main and cross strings above, and I will edit <br>
-                the decision with the appropriate string time if needed. <br>
+                the decision with the appropriate string time if needed. <font color="blue">*</font><br>
             </label>
             <div class="col-md-4">
                 <input type="text" id="prefferedString" class="form-control text-center" placeholder="Tourna Big Hitter Black 7">
@@ -124,6 +124,9 @@
                     Schedule Delivery
                 </button>
             </div>
+            <br><br><br>    
+            <p><font color="red">*</font> Required</p>
+            <p><font color="blue">*</font> Select either strings requested in mains and crosses, <strong>or</strong> provide current/preferred string type.</p>
         </div>
     </div>
 
