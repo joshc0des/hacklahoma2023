@@ -4,32 +4,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="modal fade modal-dialog modal-xl modal-dialog-centered" style="height: 100vh; display: none; top:0" id="venmoModal">
-    <div class="modal-dialog" >
-        <div class="modal-content" style="height: 90vh">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5">Venmo</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body"> 
-                    <iframe src="https://account.venmo.com/u/Luke-Sparlin" title="Venmo" width="100%" height="100%"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade modal-dialog modal-xl modal-dialog-centered" style="height: 100vh; display: none; top:0" id="payPalModal">
-    <div class="modal-dialog" >
-        <div class="modal-content" style="height: 90vh">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5">Venmo</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body"> 
-                    <iframe src="https://www.paypal.com/paypalme/LukeSparlin?locale.x=en_US" title="Venmo" width="100%" height="100%"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
 <br><br><br>
 <div class="container text-center">
     <h1 class="text-center">
@@ -42,51 +16,52 @@
                 <h3>
                     Pay With Venmo
                 </h3>
-                <button onclick="showVenmoModal()" data-bs-toggle="modal" data-bs-target="#venmoModal" type="button" class="btn btn-center btn-lg" style="background-color: rgb(0, 140, 255); color: rgb(255, 255, 255)">
+                <a href="https://account.venmo.com/u/Luke-Sparlin" target="_blank" type="button" class="btn btn-center btn-lg" style="background-color: rgb(0, 140, 255); color: rgb(255, 255, 255)">
                     Venmo
-                </button>
+                </a>
+            </div>
+            <div class="col">
+                <p>
+                    Payment options include: <br>
+                    Venmo <br>
+                    PayPal <br>
+                    Cash Upon Exchange
+                </p>
             </div>
             <div class="col">
                 <h3>
                     Pay With PayPal
                 </h3>
-                <button onclick="showPayPalModal()" data-bs-toggle="modal" data-bs-target="#payPalModal" type="button" class="btn btn-center btn-lg" style="background-color: rgb(41, 151, 216); color: rgb(37, 59, 128)">
+                <a href="https://www.paypal.com/paypalme/LukeSparlin?locale.x=en_US" target="_blank" type="button" class="btn btn-center btn-lg" style="background-color: rgb(41, 151, 216); color: rgb(37, 59, 128)">
                     PayPal
-                </button>
+                </a>
             </div>
         </div>
     </div>
-    <br><hr><br>
-    <h4 class="text-center">I would like to thank you for your time filling out this form and for suppoting a local 
-    <br>student. We hope that this experience proves to be a more convenient and efficient way for you to accomplish 
-    <br>a necessary task in the sport of tennis.</h4>
-    <br>
+    <br><hr>
+    <h5 class="text-center">
+        I would like to thank you for your time filling out this form and for supporting a local student.
+    </h5>
     <div class="form-group text-center">
-        <label for="comment">How can we serve you better?</label>
-        <textarea class="form-control mx-auto" rows="5" id="comment" style="width: 600px"></textarea>
+        <label for="comment">
+            How can we serve you better?
+        </label>
+        <textarea class="form-control mx-auto" rows="1" id="comment" style="width: 600px"></textarea>
     </div>
     <br>
-    <h4 class="text-center">Within the day, I will reach out to you through the information which you provided <br>
-    to finalize the details of the job, exchange, and any other aspects of the order, including the private <br>
-    lesson option if it was checked.</h4>
+    <h5 class="text-center">
+        Within the day, I will reach out to you through the information which you provided <br>
+        to finalize the details of the job, exchange, and any other aspects of the order.
+    </h5>
     <br>
-    <h4 class="text-center">Have a great rest of your day, and I will be in contact soon! If you have another order to make, <br>
-    press the button below to begin a new request!</h4>
-    <br>
-    <hr>
-    <br>
+    <h5 class="text-center">
+        Have a great rest of your day, and I will be in contact soon! If you have another order to make, <br>
+        press the button below to begin a new request!
+    </h5>
+    <br><hr><br>
     <div class="row align-items-center">
         <button onclick="window.location.href='/'" type="button" class="btn btn-center btn-lg btn-success">Return Home</button>
     </div>
 </div>
 <br><br><br>
-
-<script>
-    function showVenmoModal() {
-        $('#venmoModal').modal('show');
-    }
-    function showPayPalModal() {
-        $('#payPalModal').modal('show');
-    }
-</script>
 {% endblock %}
