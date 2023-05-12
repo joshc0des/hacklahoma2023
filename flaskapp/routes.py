@@ -44,3 +44,7 @@ def contact():
 @bp.route("/twine/", methods=('GET', 'POST'))
 def twine():
     return render_template("routes/twine.html")
+
+@bp.route("/orderSummary/", methods=('GET', 'POST'))
+def orderSummary():
+    return render_template("routes/orderSummary.html")
