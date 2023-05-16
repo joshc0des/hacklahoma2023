@@ -13,9 +13,9 @@ bp = Blueprint('routes', __name__) # , url_prefix='/routes'
 def home():
     return render_template("routes/home.html")
 
-@bp.route("/success/", methods=('GET', 'POST'))
-def success():
-    return render_template("routes/success.html")
+@bp.route("/thanks/", methods=('GET', 'POST'))
+def thanks():
+    return render_template("routes/thanks.html")
 
 @bp.route("/schedule/", methods=('GET', 'POST'))
 def schedule():
@@ -33,10 +33,6 @@ def string():
 def radius():
     return render_template("routes/radius.html")
 
-@bp.route("/payment/", methods=('GET', 'POST'))
-def payment():
-    return render_template("routes/payment.html")
-
 @bp.route("/contact/", methods=('GET', 'POST'))
 def contact():
     return render_template("routes/contact.html")
@@ -45,6 +41,6 @@ def contact():
 def twine():
     return render_template("routes/twine.html")
 
-@bp.route("/orderSummary/", methods=('GET', 'POST'))
-def orderSummary():
-    return render_template("routes/orderSummary.html")
+@bp.route("/summary/", methods=('GET', 'POST'))
+def summary():
+    return render_template("routes/summary.html")

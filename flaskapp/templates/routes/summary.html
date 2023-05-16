@@ -1,6 +1,6 @@
 {% extends "routes/layout.html" %}
 {% block title %}
-    About us
+    Order Summary
 {% endblock %}
 
 {% block content %}
@@ -20,12 +20,12 @@
                 </a>
             </div>
             <div class="col">
-                <p>
+                <h6>
                     Payment options include: <br>
                     Venmo <br>
                     PayPal <br>
                     Cash Upon Exchange
-                </p>
+                </h6>
             </div>
             <div class="col">
                 <h3>
@@ -37,6 +37,12 @@
             </div>
         </div>
     </div>
+    <br><hr><br>
+    <!--INSERT ORDER SUMMARY-->
+    <br><hr><br>
+    <button onclick="window.location.href='/thanks'" type="button" class="btn btn-center btn-lg btn-success">
+        Feedback and Thanks
+    </button>
 </div>
 <br><br><br>
 
