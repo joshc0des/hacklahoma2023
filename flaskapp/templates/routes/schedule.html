@@ -54,6 +54,7 @@
         </div>
     </div>
 </div>
+
 <br><br><br>
 <div class="container text-center">
     <h2 class="text-center">
@@ -79,7 +80,7 @@
         </div>
 
         <!--schedule delivery-->
-        <div id="formCoordination" style="display: none;">
+        <div id="formAddress" style="display: none;">
             <br><hr>
             <h4 class="text-center">
                 Pick-Up/Drop-Off Location
@@ -98,7 +99,7 @@
             <br>
             <div class="form-group row justify-content-center">
                 <div class="col-md-4">
-                    <form id="contactInfo2">    
+                    <form id="addressInfo">    
                         <label for="formStreet">
                             Street Address: <font color="red">*</font>
                         </label>
@@ -119,41 +120,30 @@
                             ZIP Code: <font color="red">*</font>
                         </label>
                         <input type="text" id="formZip" class="form-control" placeholder="12345" size="5" maxlength="5"  required>
+                        <br>
+                        <button onclick="enableContinueDeliveryButton()" type="submit" class="btn btn-success" id="saveAddress" disabled>
+                            Save Address
+                        </button>
                     </form>
                 </div>
             </div>
+   
             <br><hr>    
             <h4 class="text-center">
                 Schedule the Delivery Service
             </h4>
             <p class="text-center">
-                Please select two days and times for your racket to be (1) picked up and (2) delivered to the address you provided.
+                Please select one day and time for your racket to be picked up from the address you provided above. <br> 
+                The delivery of the racket will take place within 48 hours and will be coordinated via text.
             </p>
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h4 class="text-center">
-                            Pick-Up Service <font color="red">*</font>
-                        </h4>
-                        <button onclick="enableDeliveryButton1st()" class="btn btn-success" id="deliveryService1" data-bs-toggle="modal" data-bs-target="#bookingsModal">
-                            Book Pick-Up
-                        </button>
-                    </div>
-                        <div class="col">
-                        <h4 class="text-center">
-                            Drop-Off Service <font color="red">*</font>
-                        </h4>
-                        <button onclick="enableContinueDeliveryButton()" class="btn btn-success" id="deliveryService2" data-bs-toggle="modal" data-bs-target="#bookingsModal" disabled>
-                            Book Drop-Off
-                        </button>
-                    </div>
-                </div>
+            <div class="row align-items-center" style="width: 100%; height: 70%;">
+                    <iframe src="https://outlook.office.com/bookwithme/user/b7be5bd6e43a413fadb7c2c35e92cd6f%40ou.edu/meetingtype/d9DUtDEmJEW4vQeTvReOkg2?anonymous" title="Microsoft Bookings" width="100%" height="100%"></iframe>
             </div>
             <br>
             <button onclick="window.location.href='/lesson'" type="button" id="deliveryServiceContinue" class="btn btn-center btn-lg btn-success" disabled>
                 Last Question
             </button>
-            <br><br><br><br>
+            <br><br><br><br><br><br>
         </div>
         
         <!--schedule meeting-->
@@ -163,29 +153,13 @@
                 Schedule the exchange
             </h4>
             <p class="text-center">
-                Please select two days and times for you to (1) transport and (2) recieve the racket to the Lloyd Noble Center.
+                Please select one day and time for you to transport your racket to the address you provided. <br>
+                You may pick up your racket from the same address within 48 hours and will be coordinated via text.
             </p>
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h4 class="text-center">
-                            Drop-Off Your Racket <font color="red">*</font>
-                        </h4>
-                        <button onclick="enablePersonalButton1st()" class="btn btn-success" id="personalDelivery1" data-bs-toggle="modal" data-bs-target="#bookingsModal">
-                            Drop-Off Exchange
-                        </button>
-                    </div>
-                    <div class="col">
-                        <h4 class="text-center">
-                            Pick-Up Your Racket <font color="red">*</font>
-                        </h4>
-                        <button onclick="enablePersonalButton2nd()" class="btn btn-success" id="personalDelivery2" data-bs-toggle="modal" data-bs-target="#bookingsModal" disabled>
-                            Pick-Up Exchange
-                        </button>
-                    </div>
-                </div>
+            <div class="row align-items-center" style="width: 100%; height: 70%;">
+                <iframe src="https://outlook.office.com/bookwithme/user/b7be5bd6e43a413fadb7c2c35e92cd6f%40ou.edu/meetingtype/d9DUtDEmJEW4vQeTvReOkg2?anonymous" title="Microsoft Bookings" width="100%" height="100%"></iframe>
             </div>
-            <hr>
+            <br>
             <p class="text-center">
                 We will meet at the address pasted below. I will be located at the campus transit bus stop on the north face of the building! <br>
                 Please confirm that the address listed above will be the location of meeting.
@@ -197,16 +171,16 @@
             </p>
             <div>
                 <label>
-                    <input onclick="enableContinuePersonalButton()" type="checkbox" id="confirmLocation" name="understand" value="understand" disabled>
+                    <input onclick="enableContinuePersonalButton()" type="checkbox" id="confirmLocation" name="understand" value="understand">
                         I see where we are meeting! <font color="red">*</font>
                     </input>
                 </label>
             </div>
             <br>
-            <button onclick="window.location.href='/lesson'" type="button" id="personalDeliveryContinue" class="btn btn-center btn-lg btn-success" disabled>
+            <button onclick="window.location.href='/lesson'" id="personalDeliveryContinue" class="btn btn-center btn-lg btn-success" disabled>
                 Last Question
             </button>
-            <br><br><br><br>
+            <br><br><br><br><br><br>
         </div>
 
     </div>
@@ -233,10 +207,10 @@
 
     <script>
         function showInputCoordination() {
-            document.getElementById("formCoordination").style.display = "block";
+            document.getElementById("formAddress").style.display = "block";
         }
         function hideInputCoordination() {
-            document.getElementById("formCoordination").style.display = "none";
+            document.getElementById("formAddress").style.display = "none";
         }
         function showInputThanks() {
             document.getElementById("formThanks").style.display = "block";
@@ -248,7 +222,10 @@
             $('#bookingsModal').modal('show');
         }
 
-        function enableDeliveryButton1st() {
+        function enableDeliveryButton1() {
+            document.getElementById('deliveryService1').disabled = false;
+        }
+        function enableDeliveryButton2() {
             document.getElementById('deliveryService2').disabled = false;
         }
         function enableContinueDeliveryButton() {
@@ -261,10 +238,50 @@
         function enablePersonalButton2nd() {
             document.getElementById('confirmLocation').disabled = false;
         }
-
         function enableContinuePersonalButton() {
             document.getElementById('personalDeliveryContinue').disabled = false;
         }
+
+        const inputFieldStreet = document.getElementById('formStreet');
+        const inputFieldCity = document.getElementById('formCity');
+        const inputFieldState = document.getElementById('formState');
+        const inputFieldZip = document.getElementById('formZip');
+        const saveAddressButton = document.getElementById('saveAddress');
+
+        inputFieldStreet.addEventListener('input', activateContinue);
+        inputFieldCity.addEventListener('input', activateContinue);
+        inputFieldState.addEventListener('input', activateContinue);
+        inputFieldZip.addEventListener('input', activateContinue);
+
+        function activateContinue() {
+            const inputStreetFilled = inputFieldStreet.value.trim() !== '';
+            const inputCityFilled = inputFieldCity.value.trim() !== '';
+            const inputStateFilled = inputFieldState.value.trim() !== '';
+            const inputZipFilled = inputFieldZip.value.trim() !== '';
+
+            saveAddressButton.disabled = !(inputStreetFilled && inputCityFilled && inputStateFilled && inputZipFilled);
+        }
+
+        //Handle formSubmission
+        var addressInfo = document.getElementById("addressInfo");
+        addressInfo.addEventListener("submit", function(event) {
+            event.preventDefault(); //Prevent form submission
+
+            //Retrieve user input from form fields
+            var street = document.getElementById("formStreet").value;
+            var apt = document.getElementById("formApt").value;
+            var city = document.getElementById("formCity").value;
+            var state = document.getElementById("formState").value;
+            var zip = document.getElementById("formZip").value;
+
+            //Store the input values in local storage
+            localStorage.setItem("formStreet", street);
+            localStorage.setItem("formApt", apt);
+            localStorage.setItem("formCity", city);
+            localStorage.setItem("formState", state);
+            localStorage.setItem("formZip", zip);
+        })
+
         // function addValues() {
         //     let radiosMain = document.getElementsByName("stringMain");
         //     let radiosCross = document.getElementsByName("stringCross");

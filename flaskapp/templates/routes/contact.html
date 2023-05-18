@@ -45,28 +45,16 @@
     const inputFieldName = document.getElementById('formName');
     const inputFieldPhone = document.getElementById('formPhone');
     const inputFieldEmail = document.getElementById('formEmail');
-    // const inputFieldStreet = document.getElementById('formStreet');
-    // const inputFieldCity = document.getElementById('formCity');
-    // const inputFieldState = document.getElementById('formState');
-    // const inputFieldZip = document.getElementById('formZip');
     const continueButton = document.getElementById('continueButton');
 
     inputFieldName.addEventListener('input', activateContinue);
     inputFieldPhone.addEventListener('input', activateContinue);
     inputFieldEmail.addEventListener('input', activateContinue);
-    // inputFieldStreet.addEventListener('input', activateContinue);
-    // inputFieldCity.addEventListener('input', activateContinue);
-    // inputFieldState.addEventListener('input', activateContinue);
-    // inputFieldZip.addEventListener('input', activateContinue);
 
     function activateContinue() {
         const inputNameFilled = inputFieldName.value.trim() !== '';
         const inputPhoneFilled = inputFieldPhone.value.trim() !== '';
         const inputEmailFilled = inputFieldEmail.value.trim() !== '';
-        // const inputStreetFilled = inputFieldStreet.value.trim() !== '';
-        // const inputCityFilled = inputFieldCity.value.trim() !== '';
-        // const inputStateFilled = inputFieldState.value.trim() !== '';
-        // const inputZipFilled = inputFieldZip.value.trim() !== '';
 
         continueButton.disabled = !(inputNameFilled && inputPhoneFilled && inputEmailFilled);
     };
@@ -85,9 +73,6 @@
         localStorage.setItem("formName", name);
         localStorage.setItem("formPhone", phone);
         localStorage.setItem("formEmail", email);
-
-        // Redirect to the order summary page
-        window.location.href = "/twine";
     });
 </script>
 {% endblock %}
