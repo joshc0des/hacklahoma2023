@@ -121,8 +121,8 @@
                         </label>
                         <input type="text" id="formZip" class="form-control" placeholder="12345" size="5" maxlength="5"  required>
                         <br>
-                        <button onclick="enableContinueDeliveryButton()" type="submit" class="btn btn-success" id="saveAddress" disabled>
-                            Save Address
+                        <button onclick="enableContinueDeliveryButton(), disableSaveAddress()" type="submit" class="btn btn-success" id="saveAddress" disabled>
+                            Confirm Address <font color="red">*</font>
                         </button>
                     </form>
                 </div>
@@ -220,6 +220,9 @@
         }
         function showBookingsModal() {
             $('#bookingsModal').modal('show');
+        }
+        function disableSaveAddress() {
+            document.getElementById("saveAddress").disabled = true;
         }
 
         function enableDeliveryButton1() {
