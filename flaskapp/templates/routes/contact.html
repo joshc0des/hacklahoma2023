@@ -4,40 +4,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="modal fade modal-dialog modal-dialog-centered" style="height: 100vh; display: none; top: 0" id="radiusModal">
-    <div class="modal-dialog">
-        <div class="modal-content" style="height: 90vh">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 text-center">Radius of Travel</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                A flat fee of $5 is charged for the delivery service within a 20 mile radius of the OU campus in Norman. <br>
-                For each additional mile outside the initial 20, an additional $0.75 will be charged. <br><br>
-                Within the radius includes: <br>
-                <ul>
-                    <li>Blanchard</li>
-                    <li>Cole</li>
-                    <li>Goldsby</li>
-                    <li>Moore</li>
-                    <li>Newcastle</li>
-                    <li>Noble</li>
-                    <li>Norman</li>
-                    <li>Purcell</li>
-                    <li>Slaughterville</li>
-                    <li>Valley Brook</li>
-                    <li>Washington</li>
-                </ul>
-                And parts of both Mustang and southern Oklahoma City 
-                <br><br>
-                To find your location within the radius, press the button below.
-            </div>
-            <div class="modal-footer">
-                <a href="/radius" type="button" class="btn btn-center btn-info" target="_blank">More Information</a>
-            </div>
-        </div>
-    </div>
-</div>
 <br><br><br>
 <div class="container text-center">
     <h2 class="text-center">
@@ -64,132 +30,18 @@
                     Email: <font color="red">*</font>
                 </label>
                 <input type="email" id="formEmail" class="form-control text-center" placeholder="ex.ample@email.com" size="40" required>
-                <!-- <button type="submit" class="btn btn-success">
-                    SAVE
-                </button> -->
-
-            <button onclick="window.location.href='/twine'" type="submit" class="btn btn-center btn-lg btn-success" id="continueButton" disabled>
-                Twine Time
-            </button>
+                <br>
+                <button onclick="window.location.href='/twine'" type="submit" class="btn btn-center btn-lg btn-success" id="continueButton" disabled>
+                    Twine Time
+                </button>
             </form>    
         </div>
     </div>
     <br>
-    <!-- <div>
-        <label>
-            Would you like the pick-up/delivery service? <font color="red">*</font>
-        </label>
-    </div>
-    <div>
-        <label>
-            <input type="radio" name="PU/D" value="0" required onclick="showInputAddr(), hideInputNoAddr()">
-            Yes, please!
-        </label>
-        <br>
-        <label>
-            <input type="radio" name="PU/D" value="0" onclick="hideInputAddr(), showInputNoAddr()">
-            No, I will transport my own racket!
-        </label>
-    </div>
-    <br> -->
-    
-    <script>
-        // Handle form submission
-        var contactInfo = document.getElementById("contactInfo");
-        contactInfo.addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Retrieve user input from form fields
-            var name = document.getElementById("formName").value;
-            var phone = document.getElementById("formPhone").value;
-            var email = document.getElementById("formEmail").value;
-
-            // Store the input values in local storage
-            localStorage.setItem("formName", name);
-            localStorage.setItem("formPhone", phone);
-            localStorage.setItem("formEmail", email);
-
-            // Redirect to the order summary page
-            window.location.href = "/twine";
-        });
-    </script>
-    <!--Address Display Option-->
-    <!-- <div id="formAddress" style="display: none;">
-        <div>
-            <button id=radiusInfo data-bs-toggle="modal" data-bs-target="#radiusModal" class="btn btn-md btn-info">
-                Learn about our radius of travel and the costs associated here.
-            </button>
-        </div>
-        <br>
-        <div>
-            <label>
-                Where should I come to pick-up and deliver your racket?
-            </label>
-        </div>
-        <br>
-            <div class="form-group row justify-content-center">
-                <div class="col-md-4">
-                    <form id="contactInfo2">    
-                        <label for="formStreet">
-                            Street Address: <font color="red">*</font>
-                        </label>
-                        <input type="text" id="formStreet" class="form-control text-center" placeholder="123 Main Street" size="30" required>
-                        <label for="formApt">
-                            Apt/Suite/Other:
-                        </label>
-                        <input type="text" id="formApt" class="form-control" placeholder="Apt. 1A" size="20">
-                        <label for="formCity">
-                            City: <font color="red">*</font>
-                        </label>
-                        <input type="text" id="formCity" class="form-control" placeholder="City" size="20" required>
-                        <label for="formState">
-                            State: <font color="red">*</font>
-                        </label>
-                        <input type="text" id="formState" class="form-control" placeholder="State" size="2" maxlength="2" required>
-                        <label for="formZip">
-                            ZIP Code: <font color="red">*</font>
-                        </label>
-                        <input type="text" id="formZip" class="form-control" placeholder="12345" size="5" maxlength="5"  required>
-                    </form>
-                </div>
-                <div class="row align-items-center">
-                    <button onclick="window.location.href='/twine'" class="btn btn-center btn-lg btn-success" id="continueButtonFromAddress" disabled>
-                        Twine Time
-                    </button>
-                </div>
-        </div>
-    </div> -->
-<!-- 
-    NoAddress Display Option
-    <div id="formNoAddress" style="display: none;">
-        <div class="row align-items-center">
-            <form id="contactInfo">
-                <button onclick="window.location.href='/twine'" class="btn btn-center btn-lg btn-success" id="continueButtonFromNoAddress" disabled>
-                    Twine Time
-                </button>
-            </form>
-        </div>
-    </div>
-    <br>
-    <p><font color="red">*</font> Required</p>
-    </div>
-</div> -->
 <br><br><br>
 
 <!--JavaScript Functions-->
 <script>
-    // function showInputAddr() {
-    //         document.getElementById("formAddress").style.display = "block";
-    //     }
-    // function hideInputAddr() {
-    //         document.getElementById("formAddress").style.display = "none";
-    //     }
-    // function showInputNoAddr() {
-    //         document.getElementById("formNoAddress").style.display = "block";
-    //     }
-    // function hideInputNoAddr() {
-    //         document.getElementById("formNoAddress").style.display = "none";
-    //     }
     const inputFieldName = document.getElementById('formName');
     const inputFieldPhone = document.getElementById('formPhone');
     const inputFieldEmail = document.getElementById('formEmail');
@@ -198,7 +50,6 @@
     // const inputFieldState = document.getElementById('formState');
     // const inputFieldZip = document.getElementById('formZip');
     const continueButton = document.getElementById('continueButton');
-    // const continueButtonFromNoAddress = document.getElementById('continueButtonFromNoAddress');
 
     inputFieldName.addEventListener('input', activateContinue);
     inputFieldPhone.addEventListener('input', activateContinue);
@@ -217,8 +68,26 @@
         // const inputStateFilled = inputFieldState.value.trim() !== '';
         // const inputZipFilled = inputFieldZip.value.trim() !== '';
 
-        // continueButtonFromAddress.disabled = !(inputNameFilled && inputPhoneFilled && inputEmailFilled && inputStreetFilled && inputCityFilled && inputStateFilled && inputZipFilled);
         continueButton.disabled = !(inputNameFilled && inputPhoneFilled && inputEmailFilled);
     };
+
+    // Handle form submission
+    var contactInfo = document.getElementById("contactInfo");
+    contactInfo.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Retrieve user input from form fields
+        var name = document.getElementById("formName").value;
+        var phone = document.getElementById("formPhone").value;
+        var email = document.getElementById("formEmail").value;
+
+        // Store the input values in local storage
+        localStorage.setItem("formName", name);
+        localStorage.setItem("formPhone", phone);
+        localStorage.setItem("formEmail", email);
+
+        // Redirect to the order summary page
+        window.location.href = "/twine";
+    });
 </script>
 {% endblock %}
