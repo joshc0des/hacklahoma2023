@@ -45,28 +45,37 @@
     </h2>
     <div class="form-group row justify-content-center">
         <div class="col-md-4">
-            <label for="formName">
-                Name: <font color="red">*</font>
-            </label>
-            <input type="text" id="formName" class="form-control text-center" placeholder="First Last" size="30" required>
-            <br>
-            <label for="formPhone">
-                Phone Number: <font color="red">*</font>
-            </label>
-            <br>
-            <small>
-                Format: 1234567890
-            </small>
-            <input type="tel" id="formPhone" class="form-control text-center" placeholder="1234567890" size="10" maxlength="10" required>
-            <br>
-            <label for="formEmail">
-                Email: <font color="red">*</font>
-            </label>
-            <input type="email" id="formEmail" class="form-control text-center" placeholder="ex.ample@email.com" size="40" required>
+            <form id="contactInfo">
+                <label for="formName">
+                    Name: <font color="red">*</font>
+                </label>
+                <input type="text" id="formName" class="form-control text-center" placeholder="First Last" size="30" required>
+                <br>
+                <label for="formPhone">
+                    Phone Number: <font color="red">*</font>
+                </label>
+                <br>
+                <small>
+                    Format: 1234567890
+                </small>
+                <input type="tel" id="formPhone" class="form-control text-center" placeholder="1234567890" size="10" maxlength="10" required>
+                <br>
+                <label for="formEmail">
+                    Email: <font color="red">*</font>
+                </label>
+                <input type="email" id="formEmail" class="form-control text-center" placeholder="ex.ample@email.com" size="40" required>
+                <!-- <button type="submit" class="btn btn-success">
+                    SAVE
+                </button> -->
+
+            <button onclick="window.location.href='/twine'" type="submit" class="btn btn-center btn-lg btn-success" id="continueButton" disabled>
+                Twine Time
+            </button>
+            </form>    
         </div>
     </div>
     <br>
-    <div>
+    <!-- <div>
         <label>
             Would you like the pick-up/delivery service? <font color="red">*</font>
         </label>
@@ -82,10 +91,30 @@
             No, I will transport my own racket!
         </label>
     </div>
-    <br>
+    <br> -->
+    
+    <script>
+        // Handle form submission
+        var contactInfo = document.getElementById("contactInfo");
+        contactInfo.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
 
+            // Retrieve user input from form fields
+            var name = document.getElementById("formName").value;
+            var phone = document.getElementById("formPhone").value;
+            var email = document.getElementById("formEmail").value;
+
+            // Store the input values in local storage
+            localStorage.setItem("formName", name);
+            localStorage.setItem("formPhone", phone);
+            localStorage.setItem("formEmail", email);
+
+            // Redirect to the order summary page
+            window.location.href = "/twine";
+        });
+    </script>
     <!--Address Display Option-->
-    <div id="formAddress" style="display: none;">
+    <!-- <div id="formAddress" style="display: none;">
         <div>
             <button id=radiusInfo data-bs-toggle="modal" data-bs-target="#radiusModal" class="btn btn-md btn-info">
                 Learn about our radius of travel and the costs associated here.
@@ -98,94 +127,98 @@
             </label>
         </div>
         <br>
-        <div class="form-group row justify-content-center">
-            <div class="col-md-4">
-                <label for="formStreet">
-                    Street Address: <font color="red">*</font>
-                </label>
-                <input type="text" id="formStreet" class="form-control text-center" placeholder="123 Main Street" size="30" required>
-                <label for="formApt">
-                    Apt/Suite/Other:
-                </label>
-                <input type="text" id="formApt" class="form-control" placeholder="Apt. 1A" size="20">
-                <label for="formCity">
-                    City: <font color="red">*</font>
-                </label>
-                <input type="text" id="formCity" class="form-control" placeholder="City" size="20" required>
-                <label for="formState">
-                    State: <font color="red">*</font>
-                </label>
-                <input type="text" id="formState" class="form-control" placeholder="State" size="2" maxlength="2" required>
-                <label for="formZip">
-                    ZIP Code: <font color="red">*</font>
-                </label>
-                <input type="text" id="formZip" class="form-control" placeholder="12345" size="5" maxlength="5"  required>
-            </div>
-            <div class="row align-items-center">
-                <button onclick="window.location.href='/twine'" class="btn btn-center btn-lg btn-success" id="continueButtonFromAddress" disabled>
-                    Twine Time
-                </button>
-            </div>
+            <div class="form-group row justify-content-center">
+                <div class="col-md-4">
+                    <form id="contactInfo2">    
+                        <label for="formStreet">
+                            Street Address: <font color="red">*</font>
+                        </label>
+                        <input type="text" id="formStreet" class="form-control text-center" placeholder="123 Main Street" size="30" required>
+                        <label for="formApt">
+                            Apt/Suite/Other:
+                        </label>
+                        <input type="text" id="formApt" class="form-control" placeholder="Apt. 1A" size="20">
+                        <label for="formCity">
+                            City: <font color="red">*</font>
+                        </label>
+                        <input type="text" id="formCity" class="form-control" placeholder="City" size="20" required>
+                        <label for="formState">
+                            State: <font color="red">*</font>
+                        </label>
+                        <input type="text" id="formState" class="form-control" placeholder="State" size="2" maxlength="2" required>
+                        <label for="formZip">
+                            ZIP Code: <font color="red">*</font>
+                        </label>
+                        <input type="text" id="formZip" class="form-control" placeholder="12345" size="5" maxlength="5"  required>
+                    </form>
+                </div>
+                <div class="row align-items-center">
+                    <button onclick="window.location.href='/twine'" class="btn btn-center btn-lg btn-success" id="continueButtonFromAddress" disabled>
+                        Twine Time
+                    </button>
+                </div>
         </div>
-    </div>
-
-    <!--NoAddress Display Option-->
+    </div> -->
+<!-- 
+    NoAddress Display Option
     <div id="formNoAddress" style="display: none;">
         <div class="row align-items-center">
-            <button onclick="window.location.href='/twine'" class="btn btn-center btn-lg btn-success" id="continueButtonFromNoAddress" disabled>
-                Twine Time
-            </button>
+            <form id="contactInfo">
+                <button onclick="window.location.href='/twine'" class="btn btn-center btn-lg btn-success" id="continueButtonFromNoAddress" disabled>
+                    Twine Time
+                </button>
+            </form>
         </div>
     </div>
     <br>
     <p><font color="red">*</font> Required</p>
     </div>
-</div>
+</div> -->
 <br><br><br>
 
 <!--JavaScript Functions-->
 <script>
-    function showInputAddr() {
-            document.getElementById("formAddress").style.display = "block";
-        }
-    function hideInputAddr() {
-            document.getElementById("formAddress").style.display = "none";
-        }
-    function showInputNoAddr() {
-            document.getElementById("formNoAddress").style.display = "block";
-        }
-    function hideInputNoAddr() {
-            document.getElementById("formNoAddress").style.display = "none";
-        }
+    // function showInputAddr() {
+    //         document.getElementById("formAddress").style.display = "block";
+    //     }
+    // function hideInputAddr() {
+    //         document.getElementById("formAddress").style.display = "none";
+    //     }
+    // function showInputNoAddr() {
+    //         document.getElementById("formNoAddress").style.display = "block";
+    //     }
+    // function hideInputNoAddr() {
+    //         document.getElementById("formNoAddress").style.display = "none";
+    //     }
     const inputFieldName = document.getElementById('formName');
     const inputFieldPhone = document.getElementById('formPhone');
     const inputFieldEmail = document.getElementById('formEmail');
-    const inputFieldStreet = document.getElementById('formStreet');
-    const inputFieldCity = document.getElementById('formCity');
-    const inputFieldState = document.getElementById('formState');
-    const inputFieldZip = document.getElementById('formZip');
-    const continueButtonFromAddress = document.getElementById('continueButtonFromAddress');
-    const continueButtonFromNoAddress = document.getElementById('continueButtonFromNoAddress');
+    // const inputFieldStreet = document.getElementById('formStreet');
+    // const inputFieldCity = document.getElementById('formCity');
+    // const inputFieldState = document.getElementById('formState');
+    // const inputFieldZip = document.getElementById('formZip');
+    const continueButton = document.getElementById('continueButton');
+    // const continueButtonFromNoAddress = document.getElementById('continueButtonFromNoAddress');
 
     inputFieldName.addEventListener('input', activateContinue);
     inputFieldPhone.addEventListener('input', activateContinue);
     inputFieldEmail.addEventListener('input', activateContinue);
-    inputFieldStreet.addEventListener('input', activateContinue);
-    inputFieldCity.addEventListener('input', activateContinue);
-    inputFieldState.addEventListener('input', activateContinue);
-    inputFieldZip.addEventListener('input', activateContinue);
+    // inputFieldStreet.addEventListener('input', activateContinue);
+    // inputFieldCity.addEventListener('input', activateContinue);
+    // inputFieldState.addEventListener('input', activateContinue);
+    // inputFieldZip.addEventListener('input', activateContinue);
 
     function activateContinue() {
         const inputNameFilled = inputFieldName.value.trim() !== '';
         const inputPhoneFilled = inputFieldPhone.value.trim() !== '';
         const inputEmailFilled = inputFieldEmail.value.trim() !== '';
-        const inputStreetFilled = inputFieldStreet.value.trim() !== '';
-        const inputCityFilled = inputFieldCity.value.trim() !== '';
-        const inputStateFilled = inputFieldState.value.trim() !== '';
-        const inputZipFilled = inputFieldZip.value.trim() !== '';
+        // const inputStreetFilled = inputFieldStreet.value.trim() !== '';
+        // const inputCityFilled = inputFieldCity.value.trim() !== '';
+        // const inputStateFilled = inputFieldState.value.trim() !== '';
+        // const inputZipFilled = inputFieldZip.value.trim() !== '';
 
-        continueButtonFromAddress.disabled = !(inputNameFilled && inputPhoneFilled && inputEmailFilled && inputStreetFilled && inputCityFilled && inputStateFilled && inputZipFilled);
-        continueButtonFromNoAddress.disabled = !(inputNameFilled && inputPhoneFilled && inputEmailFilled);
+        // continueButtonFromAddress.disabled = !(inputNameFilled && inputPhoneFilled && inputEmailFilled && inputStreetFilled && inputCityFilled && inputStateFilled && inputZipFilled);
+        continueButton.disabled = !(inputNameFilled && inputPhoneFilled && inputEmailFilled);
     };
 </script>
 {% endblock %}

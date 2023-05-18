@@ -20,13 +20,13 @@
                 </a>
             </div>
             <div class="col">
+                <h5>
+                    Payment options include:
+                </h5>
                 <h6>
-                    Payment options include: <br>
-
-                        <li>Venmo</li>
-                        <li>PayPal</li>
-                        <li>Cash</li>
-
+                    <li>Venmo</li>
+                    <li>PayPal</li>
+                    <li>Cash</li>
                 </h6>
             </div>
             <div class="col">
@@ -40,6 +40,33 @@
         </div>
     </div>
     <br><hr><br>
+    <div id="orderDetails"></div>
+    <script>
+        // Retrieve stored input values from local storage
+        var name = localStorage.getItem("formName");
+        var phone = localStorage.getItem("formPhone");
+        var email = localStorage.getItem("formEmail");
+
+        // Generate order summary HTML using the retrieved values
+        var orderSummaryHTML = `
+            <h2>Order Details</h2>
+            <p>Name: ${name}</p>
+            <p>Phone: ${phone}</p>
+            <p>Email: ${email}</p>
+        `;
+
+        // Display order summary
+        var orderDetailsContainer = document.getElementById("orderDetails");
+        orderDetailsContainer.innerHTML = orderSummaryHTML;
+
+        // Clear the stored input values from local storage
+        localStorage.removeItem("formName");
+        localStorage.removeItem("formPhone");
+        localStorage.removeItem("formEmail");
+    </script>
+
+    <div id="orderDetails"></div>
+
     <!--INSERT ORDER SUMMARY-->
     <br><hr><br>
     <button onclick="window.location.href='/thanks'" type="button" class="btn btn-center btn-lg btn-success">
