@@ -121,7 +121,7 @@
                         </label>
                         <input type="text" id="formZip" class="form-control" placeholder="12345" size="5" maxlength="5"  required>
                         <br>
-                        <button onclick="enableContinueDeliveryButton(), disableSaveAddress()" type="submit" class="btn btn-success" id="saveAddress" disabled>
+                        <button onclick="enableContinueDeliveryButton(), changeColor()" type="submit" class="btn btn-success" id="saveAddress" disabled>
                             Confirm Address <font color="red">*</font>
                         </button>
                     </form>
@@ -221,8 +221,9 @@
         function showBookingsModal() {
             $('#bookingsModal').modal('show');
         }
-        function disableSaveAddress() {
-            document.getElementById("saveAddress").disabled = true;
+        function changeColor() {
+            var button = document.getElementById("saveAddress");
+            button.style.backgroundColor = "gray";
         }
 
         function enableDeliveryButton1() {
@@ -283,7 +284,7 @@
             localStorage.setItem("formCity", city);
             localStorage.setItem("formState", state);
             localStorage.setItem("formZip", zip);
-        })
+        });
 
         // function addValues() {
         //     let radiosMain = document.getElementsByName("stringMain");

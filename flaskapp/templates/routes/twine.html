@@ -118,130 +118,135 @@
 
     <!--if using my inventory-->
     <div id="formInventory" style="display: none;">
-        <div class="form-group row justify-content-center">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h5 class="text-center">
-                            Polyester String Option
-                        </h5>
-                        <button class="btn btn-info" id="polyester" data-bs-toggle="modal" data-bs-target="#polyesterModal">
-                            Big Hitter Blue Rough
-                        </button>
-                    </div>
-                    <div class="col">
-                        <h5 class="text-center">
-                            Multifilament Option
-                        </h5>
-                        <button class="btn btn-info" id="multifilament" data-bs-toggle="modal" data-bs-target="#multifilamentModal">
-                            Kirschbaum Set Touch
-                        </button>
-                    </div>
-                    <div class="col">
-                        <h5 class="text-center">
-                            Synthetic Gut Option
-                        </h5>
-                        <button class="btn btn-info" id="syntheticGut" data-bs-toggle="modal" data-bs-target="#syntheticGutModal">
-                            Gamma Sports
-                        </button>
+        <form id="stringInfo">
+            <div class="form-group row justify-content-center">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h5 class="text-center">
+                                Polyester String Option
+                            </h5>
+                            <button class="btn btn-info" id="polyester" data-bs-toggle="modal" data-bs-target="#polyesterModal">
+                                Big Hitter Blue Rough
+                            </button>
+                        </div>
+                        <div class="col">
+                            <h5 class="text-center">
+                                Multifilament Option
+                            </h5>
+                            <button class="btn btn-info" id="multifilament" data-bs-toggle="modal" data-bs-target="#multifilamentModal">
+                                Kirschbaum Set Touch
+                            </button>
+                        </div>
+                        <div class="col">
+                            <h5 class="text-center">
+                                Synthetic Gut Option
+                            </h5>
+                            <button class="btn btn-info" id="syntheticGut" data-bs-toggle="modal" data-bs-target="#syntheticGutModal">
+                                Gamma Sports
+                            </button>
+                        </div>
                     </div>
                 </div>
+                <br><br><br><br>
+            
+                <label for="racketType">
+                    What kind of racket do you use? <font color="red">*</font>
+                </label>
+                <div class="col-md-4">
+                    <input type="text" id="racketType" class="form-control text-center" placeholder="Babolat Pure Aero">
+                </div>
+                <br><br><br>
+                <label>
+                    Strings requested in mains? <font color="blue">*</font>
+                </label>
+                <label>
+                    <input type="radio" name="stringMain" value="Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)" id="mainString1" required>
+                    Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
+                    <font color="success">
+                        $5
+                    </font>
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="stringMain" id="mainString2" value="Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow)">
+                    Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
+                    <font color="success">
+                        $6
+                    </font>
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="stringMain" id="mainString3" value="Gamma Sports Synthetic Gut Tennis String - 16 gauge (white)">
+                    Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
+                    <font color="success">
+                        $4
+                    </font>
+                </label>
+                <br><br>
+                <label>
+                    Strings requested in crosses? <font color="blue">*</font>
+                </label>      
+                <label>
+                    <input type="radio" name="stringCross" id="crossString1" value="10" required>
+                    Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
+                    <font color="success">
+                        $5
+                    </font>
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="stringCross" id="crossString2" value="12">
+                    Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
+                    <font color="success">
+                        $6
+                    </font>
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="stringCross" id="crossString3" value="8">
+                    Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
+                    <font color="success">
+                        $4
+                    </font>
+                </label>
+                <br><br>
+                <label for="tensionMain">
+                    Tension requested in mains? (lbs)<font color="red">*</font>
+                </label>
+                <div class="col-md-1">
+                    <input type="number" id="tensionMain" class="form-control text-center" placeholder="##" min="40" max="70">
+                </div>
+                <br>
+                <label for="tensionCross">
+                    Tension requested in crosses? (lbs)<font color="red">*</font>
+                </label>
+                <br>
+                <div class="col-md-1">
+                    <input type="number" id="tensionCross" class="form-control text-center" placeholder="##" min="40" max="70">
+                </div>
+                <br>
+                <label for="prefferedString">
+                    If your preferred type is not available, please enter the current string that you use. <br>
+                    I will supplement this with the most similar string in my inventory. <br>
+                    Please make a selection for the main and cross strings above, and I will edit <br>
+                    the decision with the appropriate string time if needed. <font color="blue">*</font><br>
+                </label>
+                <div class="col-md-4">
+                    <input type="text" id="preferredString" class="form-control text-center" placeholder="Tourna Big Hitter Black 7">
+                </div>
+                <br><br><br>
             </div>
-            <br><br><br><br>
-            <label for="racketType">
-                What kind of racket do you use? <font color="red">*</font>
-            </label>
-            <div class="col-md-4">
-                <input type="text" id="racketType" class="form-control text-center" placeholder="Babolat Pure Aero">
-            </div>
-            <br><br><br>
-            <label>
-                Strings requested in mains? <font color="blue">*</font>
-            </label>
-            <label>
-                <input type="radio" name="stringMain" value="10" id="mainString1" required>
-                Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
-                <font color="success">
-                    $5
-                </font>
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="stringMain" id="mainString2" value="12">
-                Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
-                <font color="success">
-                    $6
-                </font>
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="stringMain" id="mainString3" value="8">
-                Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
-                <font color="success">
-                    $4
-                </font>
-            </label>
-            <br><br>
-            <label>
-                Strings requested in crosses? <font color="blue">*</font>
-            </label>      
-            <label>
-                <input type="radio" name="stringCross" id="crossString1" value="10" required>
-                Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
-                <font color="success">
-                    $5
-                </font>
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="stringCross" id="crossString2" value="12">
-                Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
-                <font color="success">
-                    $6
-                </font>
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="stringCross" id="crossString3" value="8">
-                Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
-                <font color="success">
-                    $4
-                </font>
-            </label>
-            <br><br>
-            <label for="tensionMain">
-                Tension requested in mains? <font color="red">*</font>
-            </label>
-            <div class="col-md-1">
-                <input type="number" id="tensionMain" class="form-control text-center" placeholder="##" min="40" max="70">
-            </div>
-            <br>
-            <label for="tensionCross">
-                Tension requested in crosses? <font color="red">*</font>
-            </label>
-            <br>
-            <div class="col-md-1">
-                <input type="number" id="tensionCross" class="form-control text-center" placeholder="##" min="40" max="70">
-            </div>
-            <br>
-            <label for="prefferedString">
-                If your preferred type is not available, please enter the current string that you use. <br>
-                I will supplement this with the most similar string in my inventory. <br>
-                Please make a selection for the main and cross strings above, and I will edit <br>
-                the decision with the appropriate string time if needed. <font color="blue">*</font><br>
-            </label>
-            <div class="col-md-4">
-                <input type="text" id="prefferedString" class="form-control text-center" placeholder="Tourna Big Hitter Black 7">
-            </div>
-            <br><br><br>
-            <div class="row align-items-center">
-                <button onclick="window.location.href='/schedule'" type="button" class="btn btn-center btn-large btn-success" id="continueButtonFromInventory" disabled>
-                    Schedule Exchange
-                </button>
-            </div>
-            <br><br><br>    
-            <p><font color="red">*</font> Required</p>
-            <p><font color="blue">*</font> Select either strings requested in mains and crosses, <strong>or</strong> provide current/preferred string type.</p>
+            <button onclick="enableContinueButtonFromInventory(), changeColor()" type="submit" class="btn btn-success" id="saveStringPreference" disabled>
+                Save String Preference
+            </button>
+        </form> 
+        <button onclick="window.location.href='/schedule'" class="btn btn-center btn-large btn-success" id="continueButtonFromInventory" disabled>
+            Schedule Exchange
+        </button>   
+        <br><br><br>    
+        <p><font color="red">*</font> Required</p>
+        <p><font color="blue">*</font> Select either strings requested in mains and crosses, <strong>or</strong> provide current/preferred string type.</p>
         </div>
     </div>
 
@@ -270,6 +275,13 @@
     function hideFormNoInventory() {
             document.getElementById("formNoInventory").style.display = "none";
         }
+    function enableContinueButtonFromInventory() {
+            document.getElementById("continueButtonFromInventory").disabled = false;
+    }
+    function changeColor() {
+            var button = document.getElementById("saveStringPreference");
+            button.style.backgroundColor = "gray";
+    }
 
     const inputFieldRacketType = document.getElementById('racketType');
     const inputFieldMainString1 = document.getElementById('mainString1');
@@ -280,8 +292,8 @@
     const inputFieldCrossString3 = document.getElementById('crossString3');
     const inputFieldTensionMain = document.getElementById('tensionMain');
     const inputFieldTensionCross = document.getElementById('tensionCross');
-    const inputFieldPrefferedString = document.getElementById('prefferedString');
-    const continueButtonFromAddress = document.getElementById('continueButtonFromInventory');
+    const inputFieldPreferredString = document.getElementById('preferredString');
+    const saveStringPreference = document.getElementById('saveStringPreference');
 
     inputFieldRacketType.addEventListener('input', activateContinue);
     inputFieldMainString1.addEventListener('input', activateContinue);
@@ -292,7 +304,7 @@
     inputFieldCrossString3.addEventListener('input', activateContinue);
     inputFieldTensionMain.addEventListener('input', activateContinue);
     inputFieldTensionCross.addEventListener('input', activateContinue);
-    inputFieldPrefferedString.addEventListener('input', activateContinue);
+    inputFieldPreferredString.addEventListener('input', activateContinue);
 
     function activateContinue() {
         const inputRacketTypeFilled = inputFieldRacketType.value.trim() !== '';
@@ -300,9 +312,27 @@
         const inputCrossStringFilled = inputFieldCrossString1.checked || inputFieldCrossString2.checked || inputFieldCrossString3.checked;
         const inputTensionMainFilled = inputFieldTensionMain.value.trim() !== '';
         const inputTensionCrossFilled = inputFieldTensionCross.value.trim() !== '';
-        const inputPrefferedStringFilled = inputFieldPrefferedString.value.trim() !== '';
+        const inputPreferredStringFilled = inputFieldPreferredString.value.trim() !== '';
 
-        continueButtonFromAddress.disabled = !(inputRacketTypeFilled && ((inputMainStringFilled && inputCrossStringFilled) || inputPrefferedStringFilled) && inputTensionMainFilled && inputTensionCrossFilled);
+        saveStringPreference.disabled = !(inputRacketTypeFilled && ((inputMainStringFilled && inputCrossStringFilled) || inputPreferredStringFilled) && inputTensionMainFilled && inputTensionCrossFilled);
     }
+
+    // Handle form Submission
+    var stringInfo = document.getElementById("stringInfo");
+    stringInfo.addEventListener("submit", function(event) {
+        event.preventDefault(); //Prevent form submission
+
+        //Retrieve user input from form fields
+        var racketType = document.getElementById("racketType").value;
+        var tensionMain = document.getElementById("tensionMain").value;
+        var tensionCross = document.getElementById("tensionCross").value;
+        var preferredString = document.getElementById("preferredString").value;
+
+        //Store the input values in local storage
+        localStorage.setItem("racketType", racketType);
+        localStorage.setItem("tensionMain", tensionMain);
+        localStorage.setItem("tensionCross", tensionCross);
+        localStorage.setItem("preferredString", preferredString);
+    });
 </script>
 {% endblock %}

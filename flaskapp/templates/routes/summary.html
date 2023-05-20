@@ -47,6 +47,10 @@
         var name = localStorage.getItem("formName");
         var phone = localStorage.getItem("formPhone");
         var email = localStorage.getItem("formEmail");
+        var racketType = localStorage.getItem("racketType");
+        var tensionMain = localStorage.getItem("tensionMain");
+        var tensionCross = localStorage.getItem("tensionCross");
+        var preferredString = localStorage.getItem("preferredString");
         var street = localStorage.getItem("formStreet");
         var apt = localStorage.getItem("formApt");
         var city = localStorage.getItem("formCity");
@@ -55,11 +59,17 @@
 
         // Generate order summary HTML using the retrieved values
         var orderSummaryHTML = `
-            <h2>Order Details</h2>
+            <h1>Order Details</h1>
+            <h5>Contact Information</h5>
             <p>Name: ${name}</p>
             <p>Phone: ${phone}</p>
             <p>Email: ${email}</p>
-            <h6>Delivery Address</h6>
+            <h5>String Job Information</h5>
+            <p>Racket Type: ${racketType}</p>
+            <p>Tension in Main: ${tensionMain} lbs</p>
+            <p>Tension in Cross: ${tensionCross} lbs</p>
+            <p>String to Supplement: ${preferredString}</p>
+            <h5>Delivery Address</h5>
             <p>Street: ${street}</p>
             <p>Apt/Suite/Other: ${apt}</p>
             <p>City: ${city}</p>
@@ -75,14 +85,16 @@
         localStorage.removeItem("formName");
         localStorage.removeItem("formPhone");
         localStorage.removeItem("formEmail");
+        localStorage.removeItem("racketType");
+        localStorage.removeItem("tensionMain");
+        localStorage.removeItem("tensionCross");
+        localStorage.removeItem("preferredString");
         localStorage.removeItem("formStreet");
         localStorage.removeItem("formApt");
         localStorage.removeItem("formCity");
         localStorage.removeItem("formState");
         localStorage.removeItem("formZip");
     </script>
-
-    <div id="orderDetails"></div>
 
     <br><hr><br>
     <button onclick="window.location.href='/thanks'" type="button" class="btn btn-center btn-lg btn-success">
