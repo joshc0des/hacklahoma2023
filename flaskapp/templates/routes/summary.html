@@ -48,6 +48,8 @@
         var phone = localStorage.getItem("formPhone");
         var email = localStorage.getItem("formEmail");
         var racketType = localStorage.getItem("racketType");
+        var stringMain = localStorage.getItem("stringMain");
+        var stringCross = localStorage.getItem("stringCross");
         var tensionMain = localStorage.getItem("tensionMain");
         var tensionCross = localStorage.getItem("tensionCross");
         var preferredString = localStorage.getItem("preferredString");
@@ -56,6 +58,8 @@
         var city = localStorage.getItem("formCity");
         var state = localStorage.getItem("formState");
         var zip = localStorage.getItem("formZip");
+        var lessonWork = localStorage.getItem("lessonWork");
+        
 
         // Generate order summary HTML using the retrieved values
         var orderSummaryHTML = `
@@ -66,6 +70,8 @@
             <p>Email: ${email}</p>
             <h5>String Job Information</h5>
             <p>Racket Type: ${racketType}</p>
+            <p>String in Main: ${stringMain}</p>
+            <p>String in Cross: ${stringCross}</p>
             <p>Tension in Main: ${tensionMain} lbs</p>
             <p>Tension in Cross: ${tensionCross} lbs</p>
             <p>String to Supplement: ${preferredString}</p>
@@ -75,6 +81,8 @@
             <p>City: ${city}</p>
             <p>State: ${state}</p>
             <p>ZIP: ${zip}</p>
+            <h5>Lesson Interest</h5>
+            <p>Lesson Focus: ${lessonWork}</p>
         `;
 
         // Display order summary
@@ -86,6 +94,8 @@
         localStorage.removeItem("formPhone");
         localStorage.removeItem("formEmail");
         localStorage.removeItem("racketType");
+        localStorage.removeItem("stringMain");
+        localStorage.removeItem("stringCross");
         localStorage.removeItem("tensionMain");
         localStorage.removeItem("tensionCross");
         localStorage.removeItem("preferredString");
@@ -94,6 +104,7 @@
         localStorage.removeItem("formCity");
         localStorage.removeItem("formState");
         localStorage.removeItem("formZip");
+        localStorage.removeItem("lessonWork");
     </script>
 
     <br><hr><br>
@@ -101,6 +112,6 @@
         Feedback and Thanks
     </button>
 </div>
-<br><br><br>
+<br><br><br><br><br>
 
 {% endblock %}

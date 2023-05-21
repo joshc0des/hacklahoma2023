@@ -38,18 +38,20 @@
     </h4>
     <br>
     <div class="form-group text-center">
-        <label for="specificWork">
-            Provide a few aspects of the game you would like to improve upon! <font color="red">*</font>
-        </label>
-        <input type="text" id="specificWork" class="form-control mx-auto" style="width: 400px" placeholder="Serve, Volley, Backhand, etc.">
-        <hr>
-        <div class="container">
-            <div class="row align-items-center">
-                <button onclick="window.location.href='/summary'" type="button" id="submitContinue" class="btn btn-center btn-lg btn-success" disabled>
-                    Submit
-                </button>
+        <form id="lessonInfo">
+            <label for="lessonWork">
+                Provide a few aspects of the game you would like to improve upon! <font color="red">*</font>
+            </label>
+            <input type="text" id="lessonWork" class="form-control mx-auto" style="width: 400px" placeholder="Serve, Volley, Backhand, etc.">
+            <hr>
+            <div class="container">
+                <div class="row align-items-center">
+                    <button onclick="window.location.href='/summary'" type="submit" id="submitContinue" class="btn btn-center btn-lg btn-success" disabled>
+                        Submit
+                    </button>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
@@ -68,6 +70,7 @@
         </div>
     </div>
 </div>
+<br><br><br><br>
 
 <script>
     function showInputLesson() {
@@ -83,16 +86,28 @@
         document.getElementById("nextTime").style.display = "none";
     }
 
-    const inputFieldSpecificWork = document.getElementById('specificWork');
+    const inputFieldLessonWork = document.getElementById('lessonWork');
     const continueButtonSubmitContinue = document.getElementById('submitContinue');
 
-    inputFieldSpecificWork.addEventListener('input', activateSubmit);
+    inputFieldLessonWork.addEventListener('input', activateSubmit);
 
     function activateSubmit() {
-        const inputSpecificWorkFilled = inputFieldSpecificWork.value.trim() !== '';
+        const inputLessonWorkFilled = inputFieldLessonWork.value.trim() !== '';
         
-        continueButtonSubmitContinue.disabled = !(inputSpecificWorkFilled);
+        continueButtonSubmitContinue.disabled = !(inputLessonWorkFilled);
     };
+
+    //Handle form Submission
+    var lessonInfo = document.getElementById("lessonInfo");
+    lessonInfo.addEventListener("submit", function(event) {
+        event.preventDefault(); //Prevent formSubmission
+
+        //Retrieve user input from form fields
+        var lessonWork = document.getElementById("lessonWork").value;
+
+        //Store the input values in local storage
+        localStorage.setItem("lessonWork", lessonWork);
+    });
 </script>
 
 {% endblock %}

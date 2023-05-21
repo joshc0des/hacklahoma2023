@@ -188,7 +188,7 @@
                     Strings requested in crosses? <font color="blue">*</font>
                 </label>      
                 <label>
-                    <input type="radio" name="stringCross" id="crossString1" value="10" required>
+                    <input type="radio" name="stringCross" id="crossString1" value="Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)" required>
                     Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue) 
                     <font color="success">
                         $5
@@ -196,7 +196,7 @@
                 </label>
                 <br>
                 <label>
-                    <input type="radio" name="stringCross" id="crossString2" value="12">
+                    <input type="radio" name="stringCross" id="crossString2" value="Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow)">
                     Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow) 
                     <font color="success">
                         $6
@@ -204,7 +204,7 @@
                 </label>
                 <br>
                 <label>
-                    <input type="radio" name="stringCross" id="crossString3" value="8">
+                    <input type="radio" name="stringCross" id="crossString3" value="Gamma Sports Synthetic Gut Tennis String - 16 gauge (white)">
                     Gamma Sports Synthetic Gut Tennis String - 16 gauge (white) 
                     <font color="success">
                         $4
@@ -240,10 +240,12 @@
             <button onclick="enableContinueButtonFromInventory(), changeColor()" type="submit" class="btn btn-success" id="saveStringPreference" disabled>
                 Save String Preference
             </button>
-        </form> 
+        </form>
+        <hr> 
         <button onclick="window.location.href='/schedule'" class="btn btn-center btn-large btn-success" id="continueButtonFromInventory" disabled>
             Schedule Exchange
-        </button>   
+        </button>
+        <hr>   
         <br><br><br>    
         <p><font color="red">*</font> Required</p>
         <p><font color="blue">*</font> Select either strings requested in mains and crosses, <strong>or</strong> provide current/preferred string type.</p>
@@ -259,7 +261,7 @@
         </div>
     </div>
 </div>
-<br><br><br>
+<br><br><br><br>
 
 <!--Javascript functions-->
 <script>
@@ -324,12 +326,16 @@
 
         //Retrieve user input from form fields
         var racketType = document.getElementById("racketType").value;
+        var stringMain = document.querySelector('input[name="stringMain"]:checked').value;
+        var stringCross = document.querySelector('input[name="stringCross"]:checked').value;
         var tensionMain = document.getElementById("tensionMain").value;
         var tensionCross = document.getElementById("tensionCross").value;
         var preferredString = document.getElementById("preferredString").value;
 
         //Store the input values in local storage
         localStorage.setItem("racketType", racketType);
+        localStorage.setItem("stringMain", stringMain);
+        localStorage.setItem("stringCross", stringCross);
         localStorage.setItem("tensionMain", tensionMain);
         localStorage.setItem("tensionCross", tensionCross);
         localStorage.setItem("preferredString", preferredString);
