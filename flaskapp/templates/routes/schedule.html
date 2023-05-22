@@ -66,7 +66,7 @@
         </label>
         <div>
             <label>
-                <input type="radio" id="confDel1" name="confDel" value="5" required onclick="showInputCoordination(), hideInputThanks()">
+                <input type="radio" id="deliveryService" name="confDel" value="5" required onclick="showInputCoordination(), hideInputThanks()">
                 Let's do the pick-up/delivery service! 
                 <font color="success">
                     $5
@@ -74,7 +74,7 @@
             </label>
             <br>
             <label>
-                <input type="radio" id="confDel2" name="confDel" value="0" onclick="hideInputCoordination(), showInputThanks()">
+                <input type="radio" name="confDel" value="0" onclick="hideInputCoordination(), showInputThanks()">
                 Transport your racket!
             </label>
         </div>
@@ -185,25 +185,6 @@
 
     </div>
 </div>
-            <!-- <br>
-            <button type="button" class="btn btn-center btn-dark" onclick="addValues()">Calculate Total*</button>
-            <div id="output" class="text-center fs-1"></div>
-            <br>
-            <hr>
-            <br>
-            <br>
-            <hr>
-            <br>
-            <p class="text-center">*This is based on the selections made above with the baseline $10 charge for labor. The calculation comes from your selection of string type and delivery service. 
-                Thus, if I am using my inventory to substitute the current type you have used, the price is not accurate as a string selection was not made. 
-                This is also for your knowledge; I will share my Venmo with you following the submission to carry out payment. Additionally, if your location 
-                exceeds a 20 mile radius from the OU campus, an additional 75 cents is added per mile radius after the intial 20 miles. <a href="{{ url_for('routes.radius') }}">Here</a>, you 
-                can see if this will be necessary.
-            </p>
-            <hr>
-            <br>
-            <br>
-            <br>  -->
 
     <script>
         function showInputCoordination() {
@@ -284,46 +265,15 @@
             localStorage.setItem("formCity", city);
             localStorage.setItem("formState", state);
             localStorage.setItem("formZip", zip);
+            addDeliveryPrice();
         });
+        
+        function addDeliveryPrice() {
+            let confDel = document.getElementsByName("confDel");
 
-        // function addValues() {
-        //     let radiosMain = document.getElementsByName("stringMain");
-        //     let radiosCross = document.getElementsByName("stringCross");
-        //     let radiosDel = document.getElementsByName("confDel");
-        //     let radiosStringOption = document.getElementsByName("stringSource");
-        //     let sum = 10;
-
-        //     if (radiosStringOption[0].checked)
-        //     {
-        //         for (let i = 0; i < radiosMain.length; ++i)
-        //         {
-        //             if (radiosMain[i].checked)
-        //             {
-        //                 sum += (Number(radiosMain[i].value)) / 2;
-        //             }
-        //         }
-
-        //         for (let i = 0; i < radiosCross.length; ++i)
-        //         {
-        //             if (radiosCross[i].checked)
-        //             {
-        //                 sum += (Number(radiosCross[i].value)) / 2;
-        //             }
-        //         }
-        //     }
-
-        //     for (let i = 0; i < radiosDel.length; ++i)
-        //     {
-        //         if (radiosDel[i].checked)
-        //         {
-        //             sum += Number(radiosDel[i].value);
-        //         }
-        //     }
-
-        //     let outputDiv = document.getElementById("output");
-        //     outputDiv.innerHTML = "$" + sum;
-        // }
+            if (confDel[0].checked) {
+                    localStorage.setItem("sumDeliveryService", 5);
+                }
+        }
     </script>
-
-
 {% endblock %}

@@ -52,13 +52,14 @@
         var stringCross = localStorage.getItem("stringCross");
         var tensionMain = localStorage.getItem("tensionMain");
         var tensionCross = localStorage.getItem("tensionCross");
-        var preferredString = localStorage.getItem("preferredString");
         var street = localStorage.getItem("formStreet");
         var apt = localStorage.getItem("formApt");
         var city = localStorage.getItem("formCity");
         var state = localStorage.getItem("formState");
         var zip = localStorage.getItem("formZip");
         var lessonWork = localStorage.getItem("lessonWork");
+        var sumString = localStorage.getItem("sumString");
+        var sumDeliveryService = localStorage.getItem("sumDeliveryService");
         
 
         // Generate order summary HTML using the retrieved values
@@ -74,7 +75,6 @@
             <p>String in Cross: ${stringCross}</p>
             <p>Tension in Main: ${tensionMain} lbs</p>
             <p>Tension in Cross: ${tensionCross} lbs</p>
-            <p>String to Supplement: ${preferredString}</p>
             <h5>Delivery Address</h5>
             <p>Street: ${street}</p>
             <p>Apt/Suite/Other: ${apt}</p>
@@ -83,6 +83,11 @@
             <p>ZIP: ${zip}</p>
             <h5>Lesson Interest</h5>
             <p>Lesson Focus: ${lessonWork}</p>
+            <h4>Total:</h4>
+            <p>Labor: $10</p>
+            <p>String: $${sumString}</p>
+            <p>Delivery Service: $${sumDeliveryService}<font color="red">*</font></p>
+            <h6>Grand Total: $${10 + parseInt(sumString) + parseInt(sumDeliveryService)}</h6>
         `;
 
         // Display order summary
@@ -98,13 +103,14 @@
         localStorage.removeItem("stringCross");
         localStorage.removeItem("tensionMain");
         localStorage.removeItem("tensionCross");
-        localStorage.removeItem("preferredString");
         localStorage.removeItem("formStreet");
         localStorage.removeItem("formApt");
         localStorage.removeItem("formCity");
         localStorage.removeItem("formState");
         localStorage.removeItem("formZip");
         localStorage.removeItem("lessonWork");
+        localStorage.removeItem("sumString");
+        localStorage.removeItem("sumDeliveryService");
     </script>
 
     <br><hr><br>
@@ -112,6 +118,6 @@
         Feedback and Thanks
     </button>
 </div>
-<br><br><br><br><br>
+<br><br><br><br>
 
 {% endblock %}

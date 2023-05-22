@@ -158,7 +158,7 @@
                 </div>
                 <br><br><br>
                 <label>
-                    Strings requested in mains? <font color="blue">*</font>
+                    Strings requested in mains? <font color="red">*</font>
                 </label>
                 <label>
                     <input type="radio" name="stringMain" value="Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)" id="mainString1" required>
@@ -185,7 +185,7 @@
                 </label>
                 <br><br>
                 <label>
-                    Strings requested in crosses? <font color="blue">*</font>
+                    Strings requested in crosses? <font color="red">*</font>
                 </label>      
                 <label>
                     <input type="radio" name="stringCross" id="crossString1" value="Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)" required>
@@ -214,26 +214,23 @@
                 <label for="tensionMain">
                     Tension requested in mains? (lbs)<font color="red">*</font>
                 </label>
+                <br>
+                <small>
+                    Enter "0" if unsure.
+                </small>
                 <div class="col-md-1">
-                    <input type="number" id="tensionMain" class="form-control text-center" placeholder="##" min="40" max="70">
+                    <input type="number" id="tensionMain" class="form-control text-center" placeholder="##" min="0" max="70">
                 </div>
                 <br>
                 <label for="tensionCross">
                     Tension requested in crosses? (lbs)<font color="red">*</font>
                 </label>
                 <br>
+                <small>
+                    Enter "0" if unsure.
+                </small>
                 <div class="col-md-1">
-                    <input type="number" id="tensionCross" class="form-control text-center" placeholder="##" min="40" max="70">
-                </div>
-                <br>
-                <label for="prefferedString">
-                    If your preferred type is not available, please enter the current string that you use. <br>
-                    I will supplement this with the most similar string in my inventory. <br>
-                    Please make a selection for the main and cross strings above, and I will edit <br>
-                    the decision with the appropriate string time if needed. <font color="blue">*</font><br>
-                </label>
-                <div class="col-md-4">
-                    <input type="text" id="preferredString" class="form-control text-center" placeholder="Tourna Big Hitter Black 7">
+                    <input type="number" id="tensionCross" class="form-control text-center" placeholder="##" min="0" max="70">
                 </div>
                 <br><br><br>
             </div>
@@ -248,7 +245,6 @@
         <hr>   
         <br><br><br>    
         <p><font color="red">*</font> Required</p>
-        <p><font color="blue">*</font> Select either strings requested in mains and crosses, <strong>or</strong> provide current/preferred string type.</p>
         </div>
     </div>
 
@@ -294,7 +290,6 @@
     const inputFieldCrossString3 = document.getElementById('crossString3');
     const inputFieldTensionMain = document.getElementById('tensionMain');
     const inputFieldTensionCross = document.getElementById('tensionCross');
-    const inputFieldPreferredString = document.getElementById('preferredString');
     const saveStringPreference = document.getElementById('saveStringPreference');
 
     inputFieldRacketType.addEventListener('input', activateContinue);
@@ -306,7 +301,6 @@
     inputFieldCrossString3.addEventListener('input', activateContinue);
     inputFieldTensionMain.addEventListener('input', activateContinue);
     inputFieldTensionCross.addEventListener('input', activateContinue);
-    inputFieldPreferredString.addEventListener('input', activateContinue);
 
     function activateContinue() {
         const inputRacketTypeFilled = inputFieldRacketType.value.trim() !== '';
@@ -314,9 +308,8 @@
         const inputCrossStringFilled = inputFieldCrossString1.checked || inputFieldCrossString2.checked || inputFieldCrossString3.checked;
         const inputTensionMainFilled = inputFieldTensionMain.value.trim() !== '';
         const inputTensionCrossFilled = inputFieldTensionCross.value.trim() !== '';
-        const inputPreferredStringFilled = inputFieldPreferredString.value.trim() !== '';
 
-        saveStringPreference.disabled = !(inputRacketTypeFilled && ((inputMainStringFilled && inputCrossStringFilled) || inputPreferredStringFilled) && inputTensionMainFilled && inputTensionCrossFilled);
+        saveStringPreference.disabled = !(inputRacketTypeFilled && inputMainStringFilled && inputCrossStringFilled && inputTensionMainFilled && inputTensionCrossFilled);
     }
 
     // Handle form Submission
@@ -330,7 +323,6 @@
         var stringCross = document.querySelector('input[name="stringCross"]:checked').value;
         var tensionMain = document.getElementById("tensionMain").value;
         var tensionCross = document.getElementById("tensionCross").value;
-        var preferredString = document.getElementById("preferredString").value;
 
         //Store the input values in local storage
         localStorage.setItem("racketType", racketType);
@@ -338,7 +330,56 @@
         localStorage.setItem("stringCross", stringCross);
         localStorage.setItem("tensionMain", tensionMain);
         localStorage.setItem("tensionCross", tensionCross);
-        localStorage.setItem("preferredString", preferredString);
+
+        addStringPrice();
     });
+
+    function addStringPrice() {
+        let priceMain = document.getElementsByName("stringMain");
+        let priceCross = document.getElementsByName("stringCross");
+        const option1Main = 'Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)';
+        const option2Main = 'Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow)';
+        const option3Main = 'Gamma Sports Synthetic Gut Tennis String - 16 gauge (white)';
+        const option1Cross = 'Tourna Big Hitter Blue Rough Polyester String - 16 gauge (blue)';
+        const option2Cross = 'Kirschbaum Set Touch Multifibre (Multifilament) - 17 gauge (yellow)';
+        const option3Cross = 'Gamma Sports Synthetic Gut Tennis String - 16 gauge (white)';
+        let selectMain;
+        let selectCross;
+        let sum = 0;
+
+        for (let i = 0; i < priceMain.length; ++i) {
+            if (priceMain[i].checked) {
+                selectMain = priceMain[i].value;
+            }
+        }
+
+        if (selectMain === option1Main) {
+            sum = sum + 5;
+        }
+        else if (selectMain === option2Main) {
+            sum = sum + 6;
+        }
+        else if (selectMain === option3Main) {
+            sum = sum + 4;
+        }
+
+        for (let i = 0; i <priceCross.length; ++i) {
+            if (priceCross[i].checked) {
+                selectCross = priceCross[i].value;
+            }
+        }
+
+        if (selectCross === option1Cross) {
+            sum = sum + 5;
+        }
+        else if (selectCross === option2Cross) {
+            sum = sum + 6;
+        }
+        else if (selectCross === option3Cross) {
+            sum = sum + 4;
+        }
+
+        localStorage.setItem("sumString", sum);
+    }
 </script>
 {% endblock %}
