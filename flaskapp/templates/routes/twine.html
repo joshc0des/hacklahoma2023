@@ -92,14 +92,14 @@
     </div>
 </div>
 <br><br><br>
+<p class="text-center"><font color="red">*</font> = Required</p>
 <div class="container text-center">
     <h2 class="text-center">
         Let's Talk Twine
     </h2>
     <div>
         <label for="stringSource">
-            Would you like to use our string inventory? <br>
-            You should check this out before making selections! <font color="red">*</font>
+            Would you like to use our string inventory? <font color="red">*</font>
         </label>
     </div>
     <br>
@@ -242,19 +242,13 @@
         <button onclick="window.location.href='/schedule'" class="btn btn-center btn-large btn-success" id="continueButtonFromInventory" disabled>
             Schedule Exchange
         </button>
-        <hr>   
-        <br><br><br>    
-        <p><font color="red">*</font> Required</p>
-        </div>
     </div>
 
     <!--if not using my inventory-->
     <div id="formNoInventory" style="display: none">
-        <div class="row align-items-center">
-            <button onclick="window.location.href='/schedule'" type="button" class="btn btn-center btn-large btn-success" id="continueButtonFromNoInventory">
-                Schedule Exchange
-            </button>
-        </div>
+        <button onclick="window.location.href='/schedule'" type="button" class="btn btn-center btn-large btn-success" id="continueButtonFromNoInventory">
+            Schedule Exchange
+        </button>
     </div>
 </div>
 <br><br><br><br>

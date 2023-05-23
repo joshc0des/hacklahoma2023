@@ -38,24 +38,9 @@
         </div>
     </div>
 </div>
-<div class="modal fade modal-dialog modal-xl modal-dialog-centered" style="height: 100vh; display: none; top: 0" id="bookingsModal">
-    <div class="modal-dialog">
-        <div class="modal-content" style="height: 90vh">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5">Microsoft Bookings</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body"> 
-                    <iframe src="https://outlook.office.com/bookwithme/user/b7be5bd6e43a413fadb7c2c35e92cd6f%40ou.edu/meetingtype/d9DUtDEmJEW4vQeTvReOkg2?anonymous" title="Microsoft Bookings" width="100%" height="100%"></iframe>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Done</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <br><br><br>
+<p class="text-center"><font color="red">*</font> = Required</p>
 <div class="container text-center">
     <h2 class="text-center">
         The Exchange
@@ -83,14 +68,34 @@
         <div id="formAddress" style="display: none;">
             <br><hr>
             <h4 class="text-center">
+                Schedule the Delivery Service Pick-Up
+            </h4>
+            <p class="text-center">
+                Please select one day and time for your racket to be picked up from the address you provide at the bottom of the page.
+            </p>
+            <div class="row align-items-center" style="width: 100%; height: 70%;">
+                    <iframe src="https://calendly.com/tennis-twine/30min" title="Calendly Pick-Up" width="100%" height="100%" class="border border-success"></iframe>
+            </div>
+            <br><hr>
+            <h4 class="text-center">
+                Schedule the Delivery Service Dropp-Off
+            </h4>
+            <p class="text-center">
+                Please select one day and time for your racket to be dropped off to the address you provide at the bottom of the page.
+            </p>
+            <div class="row align-items-center" style="width: 100%; height: 70%;">
+                    <iframe src="https://calendly.com/tennis-twine/tennis-twine-delivery-service-drop-off" title="Calendly Drop-Off" width="100%" height="100%" class="border border-success"></iframe>
+            </div>
+            <br><hr>    
+            <h4 class="text-center">
                 Pick-Up/Drop-Off Location
             </h4>
-            <div>
-                <button id=radiusInfo data-bs-toggle="modal" data-bs-target="#radiusModal" class="btn btn-md btn-info">
-                    Radius of Travel
-                </button>
-            </div>
-            <br>
+            <p>
+                A flat fee of $5 is charged for the delivery service within a 20 mile radius of the OU campus in Norman. <br>
+                For each additional mile outside the initial 20, an additional $0.75 will be charged. <br>
+            </p>
+            <a href="/radius" type="button" class="btn btn-center btn-info" target="_blank">More Information</a>
+            <br><br>
             <div>
                 <label>
                     Where should I come to pick-up and deliver your racket?
@@ -127,18 +132,6 @@
                     </form>
                 </div>
             </div>
-   
-            <br><hr>    
-            <h4 class="text-center">
-                Schedule the Delivery Service
-            </h4>
-            <p class="text-center">
-                Please select one day and time for your racket to be picked up from the address you provided above. <br> 
-                The delivery of the racket will take place within 48 hours and will be coordinated via text.
-            </p>
-            <div class="row align-items-center" style="width: 100%; height: 70%;">
-                    <iframe src="https://outlook.office.com/bookwithme/user/b7be5bd6e43a413fadb7c2c35e92cd6f%40ou.edu/meetingtype/d9DUtDEmJEW4vQeTvReOkg2?anonymous" title="Microsoft Bookings" width="100%" height="100%"></iframe>
-            </div>
             <br>
             <button onclick="window.location.href='/lesson'" type="button" id="deliveryServiceContinue" class="btn btn-center btn-lg btn-success" disabled>
                 Last Question
@@ -150,16 +143,25 @@
         <div id="formThanks" style="display: none;">
             <br><hr>
             <h4 class="text-center">
-                Schedule the exchange
+                Schedule the Self-Drop-Off
             </h4>
             <p class="text-center">
-                Please select one day and time for you to transport your racket to the address you provided. <br>
-                You may pick up your racket from the same address within 48 hours and will be coordinated via text.
+                Please select one day and time for you to drop off your racket to the address at the bottom of the page. <br>
             </p>
             <div class="row align-items-center" style="width: 100%; height: 70%;">
-                <iframe src="https://outlook.office.com/bookwithme/user/b7be5bd6e43a413fadb7c2c35e92cd6f%40ou.edu/meetingtype/d9DUtDEmJEW4vQeTvReOkg2?anonymous" title="Microsoft Bookings" width="100%" height="100%"></iframe>
+                <iframe src="https://calendly.com/tennis-twine/30min" title="Calendly Self-Drop-Off" width="100%" height="100%" class="border border-success"></iframe>
             </div>
-            <br>
+            <br><hr>
+            <h4 class="text-center">
+                Schedule the Self-Pick-Up
+            </h4>
+            <p class="text-center">
+                Please select one day and time for you to pick up your racket from the address at the bottom of the page. <br>
+            </p>
+            <div class="row align-items-center" style="width: 100%; height: 70%;">
+                <iframe src="https://calendly.com/tennis-twine/tennis-twine-delivery-service-drop-off" title="Calendly Self-Pick-Up" width="100%" height="100%" class="border border-success"></iframe>
+            </div>
+            <br><hr>
             <p class="text-center">
                 We will meet at the address pasted below. I will be located at the campus transit bus stop on the north face of the building! <br>
                 Please confirm that the address listed above will be the location of meeting.

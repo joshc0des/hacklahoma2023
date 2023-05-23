@@ -63,7 +63,156 @@
         
 
         // Generate order summary HTML using the retrieved values
+        if (racketType === null && street === null && lessonWork === null) {
+            var orderSummaryHTML = `
+            <h1>Order Details</h1>
+            <h5>Contact Information</h5>
+            <p>Name: ${name}</p>
+            <p>Phone: ${phone}</p>
+            <p>Email: ${email}</p>
+            <h5>String Job Information</h5>
+            <p>Customer Providing String</p>
+            <h5>Exchange Address</h5>
+            <p>
+                2900 S Jenkins Ave <br>
+                Norman, OK 73019 <br>
+                United States
+            </p>
+            <h5>Lesson Interest</h5>
+            <p>None</p>
+            <h4>Total:</h4>
+            <p>Labor: $10</p>
+            <h6>Grand Total: $10</h6>
+        `;
+        }
+
+        else if (racketType === null && street === null) {
         var orderSummaryHTML = `
+            <h1>Order Details</h1>
+            <h5>Contact Information</h5>
+            <p>Name: ${name}</p>
+            <p>Phone: ${phone}</p>
+            <p>Email: ${email}</p>
+            <h5>String Job Information</h5>
+            <p>Customer Providing String</p>
+            <h5>Exchange Address</h5>
+            <p>
+                2900 S Jenkins Ave <br>
+                Norman, OK 73019 <br>
+                United States
+            </p>
+            <h5>Lesson Interest</h5>
+            <p>Lesson Focus: ${lessonWork}</p>
+            <h4>Total:</h4>
+            <p>Labor: $10</p>
+            <h6>Grand Total: $10</h6>
+        `;
+        }
+
+        else if (racketType === null && lessonWork === null) {
+            var orderSummaryHTML = `
+            <h1>Order Details</h1>
+            <h5>Contact Information</h5>
+            <p>Name: ${name}</p>
+            <p>Phone: ${phone}</p>
+            <p>Email: ${email}</p>
+            <h5>String Job Information</h5>
+            <p>Customer Providing String</p>
+            <h5>Delivery Address</h5>
+            <p>
+                ${street} ${apt} <br>
+                ${city}, ${state} ${zip}
+            </p>
+            <h5>Lesson Interest</h5>
+            <p>None</p>
+            <h4>Total:</h4>
+            <p>Labor: $10</p>
+            <p>Delivery Service (price within radius): $${sumDeliveryService}*</p>
+            <h6>Grand Total: $${10 + parseInt(sumDeliveryService)}</h6>
+        `;
+        }
+
+        else if (street === null && lessonWork === null) {
+            var orderSummaryHTML = `
+            <h1>Order Details</h1>
+            <h5>Contact Information</h5>
+            <p>Name: ${name}</p>
+            <p>Phone: ${phone}</p>
+            <p>Email: ${email}</p>
+            <h5>String Job Information</h5>
+            <p>Racket Type: ${racketType}</p>
+            <p>String in Main: ${stringMain}</p>
+            <p>String in Cross: ${stringCross}</p>
+            <p>Tension in Main: ${tensionMain} lbs</p>
+            <p>Tension in Cross: ${tensionCross} lbs</p>
+            <h5>Exchange Address</h5>
+            <p>
+                2900 S Jenkins Ave <br>
+                Norman, OK 73019 <br>
+                United States
+            </p>
+            <h5>Lesson Interest</h5>
+            <p>None</p>
+            <h4>Total:</h4>
+            <p>Labor: $10</p>
+            <p>String: $${sumString}</p>
+            <h6>Grand Total: $${10 + parseInt(sumString)}</h6>
+        `;
+        }
+
+        else if (racketType === null) {
+            var orderSummaryHTML = `
+            <h1>Order Details</h1>
+            <h5>Contact Information</h5>
+            <p>Name: ${name}</p>
+            <p>Phone: ${phone}</p>
+            <p>Email: ${email}</p>
+            <h5>String Job Information</h5>
+            <p>Customer Providing String</p>
+            <h5>Delivery Address</h5>
+            <p>
+                ${street} ${apt} <br>
+                ${city}, ${state} ${zip}
+            </p>
+            <h5>Lesson Interest</h5>
+            <p>Lesson Focus: ${lessonWork}</p>
+            <h4>Total:</h4>
+            <p>Labor: $10</p>
+            <p>Delivery Service (price within radius): $${sumDeliveryService}*</p>
+            <h6>Grand Total: $${10 + parseInt(sumDeliveryService)}</h6>
+        `;
+        }
+
+        else if (street == null) {
+            var orderSummaryHTML = `
+            <h1>Order Details</h1>
+            <h5>Contact Information</h5>
+            <p>Name: ${name}</p>
+            <p>Phone: ${phone}</p>
+            <p>Email: ${email}</p>
+            <h5>String Job Information</h5>
+            <p>Racket Type: ${racketType}</p>
+            <p>String in Main: ${stringMain}</p>
+            <p>String in Cross: ${stringCross}</p>
+            <p>Tension in Main: ${tensionMain} lbs</p>
+            <p>Tension in Cross: ${tensionCross} lbs</p>
+            <h5>Exchange Address</h5>
+            <p>
+                2900 S Jenkins Ave <br>
+                Norman, OK 73019 <br>
+                United States
+            </p>
+            <h5>Lesson Interest</h5>
+            <p>Lesson Focus: ${lessonWork}</p>
+            <h4>Total:</h4>
+            <p>Labor: $10</p>
+            <p>String: $${sumString}</p>
+            <h6>Grand Total: $${10 + parseInt(sumString)}</h6>
+        `;
+        }
+
+        else if (lessonWork === null) {
+            var orderSummaryHTML = `
             <h1>Order Details</h1>
             <h5>Contact Information</h5>
             <p>Name: ${name}</p>
@@ -76,19 +225,47 @@
             <p>Tension in Main: ${tensionMain} lbs</p>
             <p>Tension in Cross: ${tensionCross} lbs</p>
             <h5>Delivery Address</h5>
-            <p>Street: ${street}</p>
-            <p>Apt/Suite/Other: ${apt}</p>
-            <p>City: ${city}</p>
-            <p>State: ${state}</p>
-            <p>ZIP: ${zip}</p>
+            <p>
+                ${street} ${apt} <br>
+                ${city}, ${state} ${zip}
+            </p>
+            <h5>Lesson Interest</h5>
+            <p>None</p>
+            <h4>Total:</h4>
+            <p>Labor: $10</p>
+            <p>String: $${sumString}</p>
+            <p>Delivery Service (price within radius): $${sumDeliveryService}*</p>
+            <h6>Grand Total: $${10 + parseInt(sumString) + parseInt(sumDeliveryService)}</h6>
+            `;
+        }
+
+        else {
+            var orderSummaryHTML = `
+            <h1>Order Details</h1>
+            <h5>Contact Information</h5>
+            <p>Name: ${name}</p>
+            <p>Phone: ${phone}</p>
+            <p>Email: ${email}</p>
+            <h5>String Job Information</h5>
+            <p>Racket Type: ${racketType}</p>
+            <p>String in Main: ${stringMain}</p>
+            <p>String in Cross: ${stringCross}</p>
+            <p>Tension in Main: ${tensionMain} lbs</p>
+            <p>Tension in Cross: ${tensionCross} lbs</p>
+            <h5>Delivery Address</h5>
+            <p>
+                ${street} ${apt} <br>
+                ${city}, ${state} ${zip}
+            </p>
             <h5>Lesson Interest</h5>
             <p>Lesson Focus: ${lessonWork}</p>
             <h4>Total:</h4>
             <p>Labor: $10</p>
             <p>String: $${sumString}</p>
-            <p>Delivery Service: $${sumDeliveryService}<font color="red">*</font></p>
+            <p>Delivery Service (price within radius): $${sumDeliveryService}</p>
             <h6>Grand Total: $${10 + parseInt(sumString) + parseInt(sumDeliveryService)}</h6>
-        `;
+            `;
+        }
 
         // Display order summary
         var orderDetailsContainer = document.getElementById("orderDetails");
@@ -112,12 +289,11 @@
         localStorage.removeItem("sumString");
         localStorage.removeItem("sumDeliveryService");
     </script>
-
-    <br><hr><br>
+    <br><hr>
     <button onclick="window.location.href='/thanks'" type="button" class="btn btn-center btn-lg btn-success">
         Feedback and Thanks
     </button>
+    <hr>
 </div>
 <br><br><br><br>
-
 {% endblock %}
